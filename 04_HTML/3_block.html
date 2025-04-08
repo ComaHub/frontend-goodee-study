@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Block Test</title>
+</head>
+
+<body>
+  <!-- 블록 요소: 상자(Layout)를 다루기 위한 요소, 수직으로 쌓임, 가로는 부모 요소, 세로는 컨텐츠 크기에 맞게 조절됨 -->
+  <div>Hello</div><div>World</div>
+  <div>Hello</div>
+  <div>World</div>
+  <br>
+
+  <!-- 가로 및 세로 너비 지정 가능 -->
+  <div style="width: 100px; background-color: orange;">Hello</div>
+  <div style="height: 40px; background-color: orange;">World</div>
+  <br>
+
+  <!-- 상하/좌우 모든 여백 지정 가능 -->
+  <div style="margin: 10px; background-color: blue;">Hello</div>
+  <div style="padding: 10px; background-color: blue;">World</div>
+  <br>
+
+  <!-- 블록 요소 안에 블록 및 인라인 요소 사용 가능 -->
+  <div>
+    <div>div in div</div>
+  </div>
+
+  <div>
+    <span>span in div</span>
+  </div>
+
+  <!-- 제약 사항이 별로 없음 => 시각적 구조(Layout)를 잡을 때 주로 사용 -->
+</body>
+
+</html>
