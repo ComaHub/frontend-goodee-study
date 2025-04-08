@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <!-- 문서의 정보는 <head> 태그 안에 작성 -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- 문서의 제목을 정의(브라우저 탭에서 확인 가능) -->
+  <title>TEST</title>
+
+  <!-- CSS, JS 연결하기 -->
+  <!-- 외부 스타일 시트 연결 -->
+  <link rel="stylesheet" href="./css/main.css">
+
+  <!-- 내부 스타일 시트 작성 -->
+  <style>
+    div {
+      text-decoration: underline;
+    }
+  </style>
+
+  <!-- 외부 스크립트 연결 -->
+  <script src="./js/main.js"></script>
+  
+  <!-- 내부 스크립트 작성 -->
+  <script>
+    console.log("내부 스크립트");
+  </script>
+</head>
+
+<body>
+  <!-- 사용자 눈에 보이는 구조는 <body> 태그 안에 작성 -->
+  <div>Hello World!</div>
+
+  <!-- 화면에 이미지 출력 -->
+  <!-- alt(alternative): 대체 텍스트 (경로 오류, 네트워크 불안정 등 + 웹 접근성 관련(스크린 리더가 이미지 대신 alt를 읽어줌)) -->
+  <img src="./images/logo.png" alt="상대 경로">
+  <img src="/02_test/images/logo.png" alt="절대 경로">
+
+  <!-- CSS로 배경 이미지 삽입 -->
+  <div class="logo"></div>
+
+  <!-- 페이지를 나누고 링크 걸기 -->
+  <!-- href(Hypertext Reference): 다른 페이지로 이동하는 참조 경로 입력 -->
+  <a href="https://www.naver.com">NAVER</a>
+  <a href="./about/about.html">About</a>
+  <!-- (참고) index.html로 만들면 경로에서 생략 가능: 브라우저가 index.html을 우선적으로 찾아 실행 -->
+  <a href="./about">About</a>
+
+</body>
+
+</html>
