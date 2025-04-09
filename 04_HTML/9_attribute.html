@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Attribute Test</title>
+
+  <style>
+    /* 모든 span에 적용 */
+    span {
+      color: blue;
+    }
+
+    /* ".": class 선택 */
+    .reddy {
+      color: red;
+    }
+
+    /* "#": id 선택 */
+    #abc {
+      color: purple;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 태그마다 사용 가능한 속성은 정해져 있음 -->
+  <img src="https://picsum.photos/300/200" alt="Sample">
+  <!-- img에 href 속성은 작동하지 않음 -->
+  <img href="https://picsum.photos/300/200" alt="Sample">
+  <br><br>
+
+  <!-- HTML 전역 속성(Global Attribute): 모든 태그에서 사용 가능 -->
+  <!-- title: 요소의 설명, 커서를 올리면 설명이 나타남 -->
+  <a href="https://www.naver.com" target="_blank" title="네이버로 이동">NAVER</a>
+  <br><br>
+
+  <!-- style: 요소에 직접 스타일 적용(inline style) -->
+  <span style="color: blue;">파란색 글자</span>
+  <br><br>
+
+  <!-- class: 중복 가능한 요소명 (선택자로 class를 사용해 CSS로 스타일 지정 또는 JS로 DOM 제어) -->
+  <span>동해물</span>과 <span class="reddy">백두산</span>이 마르고 닳도록<br>
+  하느님이 보우하사 <span class="reddy">우리나라</span> 만세
+  <br><br>
+
+  <!-- id: 고유한 요소명(문서 내 1개만 존재 가능) => 중요 요소를 쉽게 찾을 수 있음 / class보다 덜 사용 -->
+  <span id="abc">동해물</span>과 <span class="reddy">백두산</span>이 마르고 닳도록<br>
+  하느님이 보우하사 <span class="reddy">우리나라</span> 만세
+  <br><br>
+
+  <!-- data-: 요소에 데이터 저장(사용자 정의 속성을 만듦) => JS에서 속성에 저장한 데이터 활용 가능 / value 미지원 요소에게 유용 -->
+  <div data-fruit-name="apple">사과</div>
+  <div data-fruit-name="banana">바나나</div>
+
+  <script>
+    // 모든 div를 찾아 elements에 입력
+    const elements = document.querySelectorAll('div');
+    console.log(elements);
+
+    // 찾은 요소를 하나씩 꺼냄
+    elements.forEach(el => {
+      console.log(el);
+      // console.log(el.dataset.fruit-name); 이렇게 하면 안 된다
+      console.log(el.dataset.fruitName); // JS 표기법으로 접근
+      
+    })
+    
+  </script>
+
+</body>
+
+</html>

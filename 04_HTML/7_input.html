@@ -154,6 +154,10 @@
   <hr>
 
   <!-- Select box(Combo box) -->
+  <!-- Attribute
+    value: 실제 서버로 전송되는 값
+    selected: 항목을 미리 선택 
+  -->
   <label for="cars">차량 선택:</label>
   <select id="cars">
     <option value="">선택</option>
@@ -161,6 +165,30 @@
     <option value="w200">W200</option>
     <option value="accent" selected>Accent</option>
   </select>
+  <hr>
+
+  <!-- 여러 줄 입력 -->
+  <p>
+    <label for="multi">여러 줄 텍스트 입력</label>
+  </p>
+  <textarea id="multi1" cols="30" rows="6"></textarea>
+  <br>
+  <textarea id="multi2" cols="30" rows="6" spellcheck="false"></textarea>
+  <br>
+  <textarea id="multi3" cols="30" rows="6" spellcheck="false" style="resize: none;"></textarea>
+
+  <hr>
+
+  <!-- Form(Sync): 사용자가 작성한 데이터를 Server로 전송(필수: 경로 지정, 전송 방식 지정(GET, POST)) -->
+  <form action="/login" method="post">
+    <label for="id">ID:</label>
+    <input type="text" name="id">
+
+    <label for="pwd">PW:</label>
+    <input type="password" name="pwd">
+    <button type="submit">로그인</button>
+  </form>
+
 
 </body>
 

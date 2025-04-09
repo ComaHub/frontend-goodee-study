@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Table Test</title>
+
+  <style>
+    table {
+      /* cell 사이 경계를 합침 */
+      border-collapse: collapse;
+    }
+
+    th, td {
+      /* Border: 두께, 종류, 색상 입력 */
+      border: 1px solid black;
+      padding: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- table: 표, 행(row)과 열(column)로 구성(게시판, 목록, 장바구니 / 엑셀, 구글 시트 등 필요시 사용) -->
+  <!-- table을 사용해 Layout 작업을 하면 안 됨!(CSS를 사용하자) -->
+  <table>
+    <!-- Table row: 행 하나 -->
+    <tr>
+      <!-- Table data: 열 하나 -->
+      <td>A</td>
+      <td>B</td>
+    </tr>
+    <tr>
+      <td>C</td>
+      <td>D</td>
+    </tr>
+  </table>
+  <hr>
+
+  <!-- thead, tbody, tfoot, th -->
+  <table>
+    <thead>
+      <!-- thead: 머리글 행 -->
+      <tr>  
+        <!-- table header: 표제 -->
+        <th>HEAD 1</th>
+        <th>HEAD 2</th>
+        <th>HEAD 3</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- tbody: 본문 행 -->
+      <tr>
+        <td>사람 1</td>
+        <td>사람 2</td>
+        <td>사람 3</td>
+      </tr>
+      <tr>
+        <td>가각갈</td>
+        <td>가갈갱</td>
+        <td>가나다</td>
+      </tr>
+      <tr>
+        <td>16</td>
+        <td>24</td>
+        <td>37</td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <!-- tfoot: 바닥글 행 -->
+      <tr>
+        <td>END 1</td>
+        <td>END 2</td>
+        <td>END 3</td>
+      </tr>
+    </tfoot>
+  </table>
+  <hr>
+
+  <!-- colspan, rowspan: 셀 병합(merge) -->
+  <table>
+    <tr>
+      <td colspan="2">1</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>5</td>
+      <td rowspan="2">6</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>8</td>
+    </tr>
+  </table>
+  <br>
+
+  <!-- Quiz: 셀 병합 -->
+  <table>
+    <tr>
+      <td>1</td>
+      <td colspan="2">2</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td rowspan="3">5</td>
+      <td>6</td>
+      <td>7</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td colspan="2" rowspan="2">11</td>
+    </tr>
+    <tr>
+      <td>14</td>
+    </tr>
+  </table>
+
+  <!-- TODO: 나중에 완성할 것 -->
+  <!-- FIXME: 고쳐야할 것 -->
+  <!-- BUG: 발견한 버그 -->
+</body>
+
+</html>
