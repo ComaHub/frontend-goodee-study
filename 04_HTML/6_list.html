@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>List Test</title>
+
+  <style>
+    html {
+      /* 스크롤 이동을 부드럽게 */
+      scroll-behavior: smooth;
+    }
+
+    span {
+      color: red;
+    }
+
+    div {
+      color: white;
+      background-color: black;
+    }
+
+    #quiz {
+      color: yellow;
+      background-color: black;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- list: 메뉴, 탭 등 목록을 만들 때 사용 -->
+  <!-- unordered list(block): 순서가 필요없는 목록 -->
+  <ul>
+    <!-- list item(block): 목록 내의 각 항목 -->
+    <li>사과</li>
+    <li>딸기</li>
+    <li>수박</li>
+    <li>오렌지</li>
+  </ul>
+
+  <!-- ordered list(block): 순서가 있는 목록, ul에 비해 사용 빈도가 많이 떨어짐 -->
+  <ol>
+    <li>사과</li>
+    <li>딸기</li>
+    <li>수박</li>
+    <li>오렌지</li>
+  </ol>
+
+  <!-- 메뉴 구조 만들기 실습 -->
+  <!-- 메인 메뉴 -> 서브 메뉴 -->
+  <ul>
+    <li><a href="#">메인 메뉴1</a></li>
+    <li>
+      <a href="#">메인 메뉴2</a>
+      <ul>
+        <li><a href="#">서브 메뉴2-1</a></li>
+        <li>
+          <a href="#">서브 메뉴2-2</a>
+          <ul>
+            <li><a href="#">하위 메뉴2-2-1</a></li>
+            <li><a href="#">하위 메뉴2-2-2</a></li>
+          </ul>
+        </li>
+        <li><a href="#">서브 메뉴2-3</a></li>
+      </ul>
+    </li>
+    <li><a href="#">메인 메뉴3</a></li>
+    <li>
+      <a href="#">메인 메뉴4</a>
+      <ul>
+        <li><a href="#">서브 메뉴4-1</a></li>
+        <li><a href="#">서브 메뉴4-2</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <!-- anchor(inline): "닻", 하이퍼링크 지정(닻을 거는 느낌) -->
+  <!-- target: 페이지를 띄울 위치 조정(_self: 기본값, 현재 탭 / _black: 새로운 탭) -->
+  <a href="https://www.naver.com">NAVER</a>
+  <a href="https://www.google.com" target="_blank">Google</a>
+
+  <!-- 임시 태그(#): 클릭 시 새로고침을 제한 -->
+  <a href="#">임시 태그</a>
+  <!-- 해당 #id 영역으로 이동 -->
+  <a href="#intro">Intro</a>
+  <a href="#guide">Guide</a>
+
+  <!-- span(inline): 글자 영역 구분, 글자에 스타일 적용할 때 주로 사용 -->
+  <p>
+    <span>동해물</span>과 백두산이 마르고 닳도록
+  </p>
+
+  <!-- span을 div으로 바꿔보면... => 적합하지 않다. -->
+  <p>
+    <div>동해물</div>과 백두산이 마르고 닳도록
+  </p>
+
+  <!-- break(inline): 텍스트 줄바꿈. HTML에서 Enter는 Space 1개로 처리함 (이 태그로 공간조절하지 말자!) -->
+  <p>
+    동해물과 백두산이
+
+
+    마르고            닳도록
+  </p>
+
+  <p>
+    동해물과 백두산이<br>
+    마르고 닳도록
+  </p>
+
+  <!-- (참고) HTML 특수문자(HTML Entities): &lt; &gt; &nbsp; &copy; 등... -->
+  <!-- 용례 1) HTML에서의 공백 처리(&nbsp;) -->
+  <p>
+    동해물과 백두산이&nbsp;&nbsp;&nbsp; 마르고 닳도록
+  </p>
+
+  <!-- 용례 2) <div>를 자체 출력할 때(&lt;, &gt;) -->
+  &lt;div&gt;
+
+  <!-- 용례 3) Copyright (&copy;) -->
+  &copy; All Rights Reserved.
+
+
+  <!-- horizontal rule(block): 수평선 -->
+  <hr>
+
+  <!-- Quiz -->
+  <h3>Quiz: p, span, br를 이용해 출력하기</h3>
+  <p>
+    동해물과 백두산이 마르고 닳도록<br>
+    하느님이 보우하사 <span id="quiz">우리나라</span> 만세
+  </p>
+  <hr>
+
+  <!-- 임시 태그 이동 테스트 -->
+  <h2 id="intro">Intro</h2>
+  <p style="height: 300px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita, inventore ea reprehenderit excepturi blanditiis ducimus! Minus perferendis laborum odit vero asperiores quia sed, quisquam assumenda. Consequatur a atque alias soluta?</p>
+  <p style="height: 300px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita, inventore ea reprehenderit excepturi blanditiis ducimus! Minus perferendis laborum odit vero asperiores quia sed, quisquam assumenda. Consequatur a atque alias soluta?</p>
+  <p style="height: 300px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita, inventore ea reprehenderit excepturi blanditiis ducimus! Minus perferendis laborum odit vero asperiores quia sed, quisquam assumenda. Consequatur a atque alias soluta?</p>
+
+  <h2 id="guide">Guide</h2>
+  <p style="height: 300px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita, inventore ea reprehenderit excepturi blanditiis ducimus! Minus perferendis laborum odit vero asperiores quia sed, quisquam assumenda. Consequatur a atque alias soluta?</p>
+  <p style="height: 300px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita, inventore ea reprehenderit excepturi blanditiis ducimus! Minus perferendis laborum odit vero asperiores quia sed, quisquam assumenda. Consequatur a atque alias soluta?</p>
+  <p style="height: 300px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita, inventore ea reprehenderit excepturi blanditiis ducimus! Minus perferendis laborum odit vero asperiores quia sed, quisquam assumenda. Consequatur a atque alias soluta?</p>
+
+</body>
+
+</html>

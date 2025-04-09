@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Input Test</title>
+
+  <style>
+    /* ":": 가상 클래스 선택자 / "::": 가상 요소 선택자 */
+    #hidden:focus::placeholder {
+      color: transparent;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- input(inline-block): 데이터를 입력받음 -->
+  <!-- inline-block: 기본 특징은 inline과 동일 + block처럼 가로/세로 길이, 상하좌우 여백 모두 지정 가능 -->
+
+  <!-- type: 입력받을 데이터 타입 지정 -->
+  <!-- 일반 텍스트 -->
+  <input type="text">
+
+  <!-- 값을 미리 입력 -->
+  <input type="text" value="미리 입력된 값">
+
+  <!-- 힌트 제공 -->
+  <input type="text" placeholder="값을 입력하세요">
+  <!-- Tip) Focus시 Placeholder가 사라지게 하는 방법 -->
+  <input id="hidden" type="text" placeholder="값을 입력하세요">
+
+  <!-- 비활성화: 수정 불가, Focus 및 Submit 불가 -->
+  <input type="text" value="Disabled Test" disabled>
+  <!-- 참고) Read Only: 수정 불가, Focus 및 Submit 가능 -->
+  <input type="text" value="Read Only Test" readonly>
+
+  <hr>
+
+  <!-- checkbox -->
+  <input type="checkbox">Apple
+  <input type="checkbox">Banana
+  <br>
+
+  <!-- label 바인딩 방법 
+    1. label 내부에 input 배치
+    2. for 값이 input의 id와 일치
+  -->
+
+  <label>
+    <input type="checkbox">Apple
+  </label>
+  <label>
+    <input type="checkbox">Banana
+  </label>
+  <br>
+
+  <input type="checkbox" id="apple">
+  <label for="apple">Apple</label>
+  <input type="checkbox" id="banana">
+  <label for="banana">Banana</label>
+  <br>
+
+  <!-- 
+    label 사용 이점(웹 접근성과 관련)
+    1. 매우 작은 영역(예: 확인란)을 클릭하는 데 어려움이 있는 사용자
+    - 사용자가 요소 내의 텍스트를 클릭하면 <label>입력이 토글되기 때문(히트 영역이 증가함)
+    2. 스크린 리더 사용자(사용자가 요소에 초점을 맞추면 레이블을 소리내어 읽음)
+  -->
+
+  <!-- 값을 미리 체크 -->
+  <label>
+    <input type="checkbox">Apple
+  </label>
+  <label>
+    <input type="checkbox" checked>Banana
+  </label>
+  <hr>
+
+  <!-- Radio Button -->
+  <label>
+    <input type="radio">Apple
+  </label>
+  <label>
+    <input type="radio">Banana
+  </label>
+  <br>
+
+  <!-- name으로 그룹화해야 함 -->
+  <!-- checkbox: 중복 선택 가능 / radio button: 그룹당 한 개만 선택 가능 -->
+  <label>
+    <input type="radio" name="fruits"> Apple
+  </label>
+  <label>
+    <input type="radio" name="fruits" checked> Banana
+  </label>
+  <hr>
+
+  <!-- 이외 다른 입력 양식(w3school 참고) -->
+
+  <!-- Button -->
+  <input type="button" value="눌러주세요">
+  <button type="button">눌러달라고</button>
+  <!-- button의 장점: 요소 내 텍스트 외 다른 태그 삽입 가능 -->
+  <button type="button">
+    <b>눌러</b><br>달랬지
+  </button>
+  <hr>
+
+  <!-- 색상 선택 도구(Color Picker) -->
+  <label for="favcolor">색상 선택:</label>
+  <input type="color" id="favcolor" value="#ff0000">
+  <hr>
+
+  <!-- 날짜 -->
+  <label for="birthday">생일(날짜):</label>
+  <input type="date" id="birthday">
+  <br>
+
+  <!-- 날짜 + 시간 -->
+  <label for="birthdaytime">생일(날짜/시간):</label>
+  <input type="datetime-local" id="birthdaytime">
+  <br>
+
+  <!-- 시간 -->
+  <label for="birthtime">생일(시간)</label>
+  <input type="time" id="birthtime">
+  <hr>
+
+  <!-- E-Mail: Submit 시 자동으로 E-Mail 형식 유효성 검사를 진행함 -->
+  <form action="/signup">
+   <label for="email">이메일:</label>
+   <input type="email" id="email">
+   <button type="submit">가입</button>
+  </form>
+  <hr>
+
+  <!-- 파일 첨부 -->
+  <label for="myfile">파일 선택:</label>
+  <input type="file" id="myfile">
+  <br>
+
+  <label for="myfiles">여러 파일 선택:</label>
+  <input type="file" id="myfiles" multiple>
+  <br>
+
+  <!-- 범위 선택(기본값: 0~100) -->
+  <label for="volume">음량(0 ~ 10):</label>
+  <input type="range" id="volume" min="0" max="10" step="2">
+
+  <!-- 비밀번호 -->
+  <label for="pwd">비밀번호:</label>
+  <input type="password" id="pwd" maxlength="10">
+  <hr>
+
+  <!-- Select box(Combo box) -->
+  <label for="cars">차량 선택:</label>
+  <select id="cars">
+    <option value="">선택</option>
+    <option value="sm7">SM7</option>
+    <option value="w200">W200</option>
+    <option value="accent" selected>Accent</option>
+  </select>
+
+</body>
+
+</html>
