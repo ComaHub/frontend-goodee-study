@@ -182,6 +182,7 @@
   <!-- Form(Sync): 사용자가 작성한 데이터를 Server로 전송(필수: 경로 지정, 전송 방식 지정(GET, POST)) -->
   <form action="/login" method="post">
     <label for="id">ID:</label>
+    <!-- name: 서버로 전달할 때 독립적으로 구분하기 위한 이름 -->
     <input type="text" name="id">
 
     <label for="pwd">PW:</label>
