@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pseudo-Class Test</title>
+
+  <style>
+    /* 1. Pseudo-Class Selector: 사용자의 행동에 의해 동작 */
+    /* :hover => 마우스를 올려놓고 있는 동안 선택 */
+    a:hover {
+      color: red;
+    }
+
+    .box {
+      width: 100px;
+      height: 100px;
+      background-color: orange;
+
+      /* 전환 효과 */
+      transition: 1s;
+    }
+
+    /* Quiz: 마우스를 올리면 가로 300px, 배경색 royalblue로 변경 */
+    /* .box:hover {
+      width: 300px;
+      background-color: royalblue;
+    } */
+
+    /* :active => 클릭하는 동안 선택 (모바일에서 :hover 대신 꼼수로 사용) */
+    a:active {
+      color: lime;
+    }
+
+    .box:active {
+      width: 300px;
+      background-color: royalblue;
+    }
+
+    /* (공유) 버튼을 누르는 효과를 줄 때 잘 활용한 예시(보통은 버튼 색상만 변경): 
+    https://codepen.io/jooing/pen/jOMybXY */
+
+    /* :focus => Element가 활성화(Focusing)되면 선택 */
+    /* HTML 대화형(interactive) 요소 / Tab 키로 확인 가능 (예: input, a, button, label, select, textarea ...) */
+    /* 검색: HTML 대화형 컨텐츠 mdn */
+    input:focus {
+      background-color: orange;
+    }
+
+    /* 2. Pseudo-Class Selector: 특정 Element 선택 */
+    /* 
+      :first-child (첫 번째 자식 요소)
+      :last-child (마지막 자식 요소)
+    */
+    .fruits span:first-child {
+      color: red;
+    }
+
+    /* div는 3번째 자식이라 선택이 안 됨 */
+    .fruits div:first-child {
+      color: blue;
+    }
+
+    .fruits h3:last-child {
+      color: lime;
+    }
+
+    /* :nth-child(n): n번째 자식 요소 선택 (수식 입력 가능) */
+    .fruits *:nth-child(2n) {
+      color: purple;
+    }
+
+    .fruits *:nth-child(odd) {
+      color: yellow;
+    }
+
+    .fruits *:nth-child(n + 2) {
+      color: skyblue;
+    }
+
+    /* Quiz: 앞 3개만 선택하는 경우 (n은 항상 앞에 와야 함) */
+    .fruits *:nth-child(-n + 3) {
+      color: orange;
+    }
+
+    /* :not(s) => s를 제외하고 선택 */
+    .fruits *:not(:nth-child(n + 4)) {
+      color: turquoise;
+    }
+
+    .fruits *:not(span, h3) {
+      color: sandybrown;
+    }
+  </style>
+</head>
+
+<body>
+  <a href="https://www.naver.com">NAVER</a>
+
+  <div class="box"></div>
+
+  <input type="text">
+
+  <div class="fruits">
+    <span>Strawberry</span>
+    <span>Watermelon</span>
+    <div>Orange</div>
+    <p>Mango</p>
+    <h3>Apple</h3>
+  </div>
+</body>
+
+</html>

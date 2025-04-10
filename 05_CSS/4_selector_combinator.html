@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Combinator Test</title>
+
+  <style>
+    /* Combinator: Selector를 조합해서 사용 */
+    /* Basic Combinator: 동시에 만족하는 Element 선택 */
+    span.orange {
+      color: red;
+    }
+    /* Tag Selector는 구분자가 없으므로 항상 앞에 작성 */
+    /* .orangespan {
+      color: red;
+    } => 적용 안됨 */
+
+    /* Child Combinator( > ): Child Element 선택 */
+    ul > .orange {
+      color: blue;
+    }
+
+    /* Descendant Combinator( ): Descendant Element 선택 (Child 포함) => Space가 기호 (제일 많이 사용함!) */
+    div .apple {
+      color: green;
+    }
+
+    /* Next-Sibling Combinator( + ): 인접한 다음 형제 요소 하나(Next Sibling)를 선택 */
+    .orange + li {
+      color: purple;
+    }
+
+    /* General Sibling Combinator( ~ ): 다음 형제 요소 모두 선택
+      => 사용 빈도는 낮으나 가끔 "다음 형제 요소 중 특정 요소 선택" 시 유용 */
+    .orange ~ .apple {
+      color: yellow;
+    }
+
+    input {
+      display: block;
+    }
+
+    input + input {
+      margin-top: 10px;
+    }
+
+    button + button {
+      margin-left: 2px;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <ul>
+      <li class="apple">Apple</li>
+      <li>Strawberry</li>
+      <li class="orange">Orange</li>
+    </ul>
+    <div>Carrot</div>
+    <p>Tomato</p>
+    <span class="orange">Orange</span>
+  </div>
+  <span class="orange">Orange</span>
+  <ul>
+    <li>Mango</li>
+    <li>Watermelon</li>
+    <li class="orange">Orange</li>
+    <li>Blueberry</li>
+    <li class="apple">Apple</li>
+  </ul>
+
+  <!-- Tip! input, button이 반복되는 경우에서 간격을 줄 때 -->
+  <input type="text">
+  <input type="text">
+  <input type="text">
+  <button type="button">Button</button>
+  <button type="button">Button</button>
+  <button type="button">Button</button>
+</body>
+
+</html>

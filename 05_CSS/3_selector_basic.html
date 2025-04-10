@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Selector Test</title>
+
+  <style>
+    /* Selector */
+    /* 1. Universal Selector: 모든 Tag 선택
+      용례) 단독: style 초기화 / color, font-size, font-family 등 공통 style 적용 시
+            복합: 특정 범위 내 모든 Element 선택 시
+    */
+    * {
+      margin: 0;
+      padding: 0;
+      color: red;
+    }
+
+    /* 2. Tag Selector: Tag 이름으로 선택 */
+    li {
+      color: blue;
+    }
+
+    /* 3. Class Selector: class 값으로 선택 */
+    .orange {
+      color: yellow;
+    }
+
+    /* 4. ID Seletor: id 값으로 선택 */
+    #orange {
+      color: purple;
+    }
+
+    /* Universal -> Tag -> Class -> ID 순으로 기억 (우선순위 관련) => 느낌으로 익히자 */
+  </style>
+</head>
+
+<body>
+  <div>
+    <ul>
+      <li>Apple</li>
+      <li>Strawberry</li>
+      <li id="orange" class="orange">Orange</li>
+    </ul>
+    <div>Carrot</div>
+    <p>Tomato</p>
+    <span class="orange">Orange</span>
+  </div>
+</body>
+
+</html>
