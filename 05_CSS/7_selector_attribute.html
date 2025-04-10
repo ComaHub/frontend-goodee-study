@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Attribute Selector Test</title>
+
+  <style>
+    /* Attribute Selector([]): HTML의 속성과 값으로 요소 선택 */
+    [disabled] {
+      color: red;
+    }
+
+    [type] {
+      color: blue;
+      background-color: orange;
+    }
+
+    [type="password"] {
+      color: green;
+      background-color: gray;
+    }
+
+    [value="Damon"] {
+      color: yellow;
+      background-color: black;
+    }
+
+    /* Quiz */
+    [data-fruit-name="banana"] {
+      color: lime;
+      background-color: black;
+    }
+  </style>
+</head>
+
+<body>
+  <input type="text" value="Damon">
+  <input type="password" value="1234">
+  <input type="text" value="ABCD" disabled>
+  <span data-fruit-name="apple">Apple</span>
+  <span data-fruit-name="banana">Banana</span>
+</body>
+
+</html>

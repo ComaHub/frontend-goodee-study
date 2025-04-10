@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Priority Test</title>
+
+  <style>
+    /* Inherited -> Universal -> Tag -> Class -> ID ->> Inline Style ->>>>>> Important */
+    /* 개발자 도구에서 우선순위 점수 순으로 확인 가능 */
+    body {
+      color: violet;
+      /* 상속은 브라우저 기본 스타일보다 우선순위가 낮음 */
+    }
+
+    * {
+      color: darkblue;
+    }
+
+    div {
+      color: royalblue;
+    }
+
+    .hello {
+      color: green;
+    }
+
+    .hello {
+      /* 우선 순위가 동일할 경우 마지막에 반영된 스타일 적용 */
+      color: orange;
+    }
+
+    div.hello {
+      /* 선택자를 여러개 사용해 더 명확하게 지정하면 우선순위가 상승 */
+      color: lime;
+    }
+
+    #hello {
+      color: yellow;
+    }
+
+    div {
+      /* !important: 반드시 해당 스타일로 적용 / 가급적 지양 (남발 시 차후 스타일 수정이 곤란해짐) */
+      color: red !important;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="hello" class="hello" style="color: olive;">
+    Hello World!
+  </div>
+</body>
+
+</html>

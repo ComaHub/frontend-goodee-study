@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inherit Test</title>
+
+  <style>
+    /* Style Inherit: 해당 요소와 하위 요소까지 스타일 적용 */
+    .animal {
+      color: red;
+    }
+
+    /* 상속 가능한 CSS 속성은 대부분 글자 관련
+      - 개발자 도구에서 상속받은 스타일 확인 가능 (속성 검색 후 Inherited 여부 확인)
+    */
+
+    /* 상속을 이용한 기본 스타일 작업 */
+    body {
+      font-family: 'D2Coding';
+      font-size: 24px;
+      font-weight: 400;
+      line-height: 1.4;
+    }
+
+    /* 강제 상속: 자동 상속되지 않는 속성을 강제로 상속 */
+    .parent {
+      width: 300px;
+      height: 400px;
+      background-color: red;
+    }
+
+    .child {
+      width: 100px;
+      /* height: 200px; */
+      height: inherit;
+      background-color: inherit;
+
+      position: fixed;
+      top: 100;
+      right: 10px;
+    }
+
+    /* (참고) 모든 CSS 속성, HTML 요소에 사용 가능
+      예) 버튼의 경우 font-size를 상속받아도 적용 안됨(기본 스타일 때문) => Inherit으로 강제 상속
+    */
+    button {
+      font-size: inherit;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="ecosystem">
+    Ecosystem
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    <div class="animal">
+      Animal
+      <div class="tiger">Tiger</div>
+      <div class="lion">Lion</div>
+      <div class="elephant">Elephant</div>
+    </div>
+    <div class="plant">
+      Plant
+    </div>
+  </div>
+  <br><br>
+
+  <div class="parent">
+    <div class="child"></div>
+  </div>
+  <br><br>
+
+  <button type="button">눌러줘</button>
+</body>
+
+</html>
