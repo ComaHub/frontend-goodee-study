@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Overflow Test</title>
+
+  <style>
+    .parent {
+      width: 200px;
+      height: 150px;
+      background-color: black;
+      margin: 20px;
+      padding: 20px;
+
+      /* Overflow는 Parent 영역에 명시 */
+      /* 기본값: visible */
+      overflow: visible;
+
+      /* hidden: Overflow한 내용을 잘라냄 */
+      overflow: hidden;
+
+      /* scroll: 반드시 Scrollbar 생성 => Overflow 발생하지 않아도 생성 (사용률 낮음) */
+      overflow: scroll;
+
+      /* auto: Overflow 발생 시에만 Scrollbar 생성 (자주 사용) */
+      overflow: auto;
+
+      /* x축, y축 개별 지정 가능 */
+      overflow: hidden scroll;
+
+      overflow-x: auto;
+      overflow-y: scroll;
+    }
+
+    .child {
+      width: 300px;
+      height: 100px;
+      background-color: gold;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="parent">
+    <div class="child"></div>
+  </div>
+</body>
+
+</html>
+
+<!-- Quiz
+  Q1: 요소 넘침을 잘라낼 때 사용하는 속성과 값은?
+  A1: overflow: hidden;
+
+  Q2: overflow 속성의 기본값은?
+  A2: visible
+-->

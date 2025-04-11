@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Font Test</title>
+
+  <style>
+    h1.test {
+      font-size: 16px;
+      
+      /* 두께 */
+      font-weight: 400;
+
+      /* 기울기 */
+      font-style: italic;
+
+      /* 글꼴 */
+      font-family: serif;
+    }
+
+    p.test {
+      width: 350px;
+      padding: 10px;
+      border: 1px solid black;
+
+      /* 행간 */
+      line-height: 1.6;
+    }
+
+    /* Utility Class => 자주 쓰는 style은 재사용 가능하도록 class로 미리 작성하면 좋음
+      Utility Class Library (bootstrap, tailwind ...)
+    */
+    .fst-italic {font-style: italic;}
+    
+    /* Font가 해당 두께를 지원해야 함 (지원하지 않으면 가장 가까운 값으로 적용) */
+    .fw-bold {font-weight: bold;}
+    .fw-900 {font-weight: 900;}
+  
+    /* Font size는 일반적으로 단위를 사용(px, em, rem) */
+    .fs-large {font-size: large;}
+    .fs-150pc {font-size: 150%;}
+
+    .lh-32px {line-height: 32px;}
+    .lh-2 {line-height: 2;}
+    .lh-200p {line-height: 200%;}
+  </style>
+</head>
+
+<body>
+  <h1 class="test">Hello World!</h1>
+  <p class="test">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsa provident, totam eveniet similique incidunt earum inventore dolorum beatae commodi! Dignissimos, voluptatibus sapiente voluptate vitae omnis iure quidem amet facere accusantium?</p>
+
+  <h1>font-style: 글꼴의 기울기</h1>
+  <p>이것은 문단입니다, normal.</p>
+  <p class="fst-italic">이것은 문단입니다, italic.</p>
+
+  <h1>font-weight: 글꼴 두께</h1>
+  <p>이것은 문단입니다, normal, 400.</p>
+  <p class="fw-bold">이것은 문단입니다, bold. (700과 동일)</p>
+  <p class="fw-900">이것은 문단입니다, 900.</p>
+
+  <h1>font-size: 글꼴 크기</h1>
+  <div>이것은 텍스트입니다, medium. (16px)</div>
+  <div class="fs-large">이것은 텍스트입니다, large.</div>
+  <div class="fs-150pc">이것은 텍스트입니다, 150%.</div>
+
+  <h1>line-height: 한 줄의 높이(행간)</h1>
+  <h2>line-height: normal:</h2>
+  <div>
+    이것은 표준 줄 높이를 갖는 문단입니다.<br>
+    대부분의 브라우저에서 표준 줄 높이는 약 110% ~ 120% 입니다.
+  </div>
+  <h2>line-height: 32px;</h2>
+  <div class="lh-32px">
+    이것은 지정된 줄 높이를 갖는 문단입니다.<br>
+    여기서 줄 높이는 32픽셀로 설정됩니다.
+  </div>
+  <h2>line-height: 2 (권장 방식, 단위 없음):</h2>
+  <div class="lh-2">
+    이것은 권장 줄 높이를 갖는 문단입니다.<br>
+    줄 높이가 요소의 글꼴 크기에 배수로 지정됩니다.
+  </div>
+  <h2>line-height: 200%:</h2>
+  <div class="lh-200p">
+    이것은 비율 줄 높이를 갖는 문단입니다.<br>
+    여기서 줄 높이는 200%로 설정됩니다.
+  </div>
+</body>
+
+</html>
