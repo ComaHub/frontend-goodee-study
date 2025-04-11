@@ -1,3 +1,5 @@
+/* Selector는 위에서부터 내려오면서 작성하는 것이 좋다! */
+
 /* 1. 14 라인의 <img>태그를 선택하는 선택자를 작성 */
 header img {
   border: 2px solid red;
@@ -9,7 +11,7 @@ nav ul {
 }
 
 /* 3. 33~40 라인의 5번째 <a>태그의 <img>를 선택하는 선택자를 작성(가상 클래스 선택자 필수) */
-aside *:nth-child(5) img {
+aside a:nth-child(5) img {
   border: 2px solid red;
 } 
 
@@ -19,7 +21,7 @@ aside *:nth-child(5) img {
 }
 
 /* 5. 62~77 라인의 <ul>태그에서 3번째 <li>을 선택하는 선택자를 작성(가상 클래스 선택자 필수) */
-#detail_list *:nth-child(4) *:nth-child(3) {
+#detail_list ul:nth-child(4) li:nth-child(3) {
   border: 2px solid red;
 }
 
@@ -33,6 +35,10 @@ aside *:nth-child(5) img {
 /* border가 아닌 background-color로 테스트 할 것! */
 input[type="text"]:not([readonly]):focus {
   background-color: red;
+
+  /* Focus 시 outline이 생김 */
+  outline: none;
+  border: 2px solid yellow;
 }
 
 /* 답안 작성: 
