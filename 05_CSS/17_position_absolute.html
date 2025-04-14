@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Absolute Position Test</title>
+
+  <style>
+    .grandparent {
+      width: 800px;
+      height: 550px;
+      background-color: violet;
+
+      position: relative;
+    }
+
+    .parent {
+      width: 600px;
+      height: 350px;
+      background-color: black;
+
+      /* 부모 요소에 위치 기준 생성 */
+      position: relative;
+      /* (참고) absolute나 fixed를 쓰면 일반적인 배치 흐름에서 벗어남 => Layout 구조가 무너짐 */
+    }
+
+    .child-1 {
+      width: 250px;
+      height: 150px;
+      background-color: gold;
+    }
+
+    .child-2 {
+      width: 350px;
+      height: 250px;
+      background-color: lime;
+
+      /* absolute: 상위 요소 중 위치 기준이 존재하는 가장 가까운 요소를 기준으로 배치 */
+      position: absolute;
+      /* 요소가 붕 뜨면서 일반적인 배치 흐름에서 벗어남 */
+      bottom: 30px;
+      right: 60px;
+      /* 위치 기준이 존재하는 상위 요소가 하나도 없으면 viewport가 기준이 됨 */
+    }
+
+    .child-3 {
+      width: 250px;
+      height: 300px;
+      background-color: royalblue;
+    }
+
+    /* 정리: absolute를 사용해서 배치하는 경우 => 일반적으로 부모 요소에 relative를 지정 */
+
+    .wrapper {
+      width: 800px;
+      height: 400px;
+      background-color: black;
+
+      position: relative;
+    }
+
+    .box {
+      width: 100px;
+      height: 100px;
+      background-color: gold;
+
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="grandparent">
+    <div class="parent">
+      <div class="child-1">1</div>
+      <div class="child-2">2</div>
+      <div class="child-3">3</div>
+    </div>
+  </div>
+  <br><br>
+
+  <!-- Tip! absolute가 적용된 요소의 수평, 수직 가운데 배치 -->
+  <div class="wrapper">
+    <div class="box"></div>
+  </div>
+</body>
+
+</html>

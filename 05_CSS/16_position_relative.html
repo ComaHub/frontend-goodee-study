@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Relative Position Test</title>
+
+  <style>
+    .parent {
+      width: 600px;
+      height: 350px;
+      background-color: black;
+    }
+
+    .child-1 {
+      width: 250px;
+      height: 150px;
+      background-color: gold;
+    }
+
+    .child-2 {
+      width: 350px;
+      height: 250px;
+      background-color: lime;
+
+      /* relative: element의 기존 위치를 기준으로 배치 */
+      position: relative;
+      /* 실제 위치 값을 주어야 작동함 */
+      top: 30px;
+      left: 300px;
+      /* 이동 전 자리는 그대로 비어있음 */
+    }
+
+    .child-3 {
+      width: 250px;
+      height: 300px;
+      background-color: royalblue;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="parent">
+    <div class="child-1">1</div>
+    <div class="child-2">2</div>
+    <div class="child-3">3</div>
+  </div>
+</body>
+
+</html>
