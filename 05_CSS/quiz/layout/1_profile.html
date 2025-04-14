@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    .profile {
+      text-align: center;
+    }
+
+    .profile > img {
+      /* img는 Inline 요소이지만 Inline-block처럼 동작 */
+      width: 100px;
+      height: 100px;
+      border: 1px solid #000;
+      border-radius: 50%;
+
+      /* 이미지 가운데 정렬: 1. 부모에 text-align: center / 2. width를 보유한 block element에 margin: 0 auto; */
+    }
+
+    .title {
+      /* 글자 가운데 정렬 */
+      text-align: center;
+      font-size: 24px;
+    }
+
+    p.content {
+      text-align: center;
+      font-size: 18px;
+    }
+
+    p.content > .red {
+      color: red;
+      font-weight: bold;
+    }
+
+    div.box {
+      width: 450px;
+      margin: 0 auto;
+      padding: 10px 0;
+      color: white;
+      background-color: royalblue;
+      text-align: center;
+      border-radius: 5px;
+      box-shadow: 5px 5px black;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 주어진 구조 외에 추가 가능 -->
+  <!-- div.profile>img -->
+  <div class="profile">
+    <img src="../../images/logo.png" alt="Profile">
+  </div>
+
+  <!-- h3.title -->
+  <h3 class="title">Damon Lee</h3>
+
+  <!-- p.content -->
+  <p class="content"><span class="red">Full Stack</span> Developer</p>
+
+  <!-- div.box -->
+  <div class="box">
+    <p>
+      안녕하세요. Damon Lee 입니다.<br>
+      현재 웹 프론트엔드/백엔드 과정을 수강하고 있으며<br>
+      취미는 게임을 하는 것입니다.<br>
+    </p>
+  </div>
+
+</body>
+
+</html>
