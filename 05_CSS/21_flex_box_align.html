@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flex Box Align Test</title>
+
+  <style>
+    .flex-container {
+      background-color: black;
+
+      display: flex;
+    }
+
+    .flex-container > div {
+      width: 100px;
+      height: 100px;
+      font-size: 30px;
+      background-color: gold;
+      margin: 10px;
+
+      text-align: center;
+      /* line-height: 100px; */
+      align-content: center;
+    }
+
+    .flex-nowrap {
+      flex-wrap: nowrap;
+    }
+
+    .flex-wrap {
+      flex-wrap: wrap;
+    }
+
+    .justify-content-start {
+      justify-content: flex-start;
+    }
+
+    .justify-content-end {
+      justify-content: flex-end;
+    }
+
+    .justify-content-center {
+      justify-content: center;
+    }
+
+    .justify-content-space-between {
+      justify-content: space-between;
+    }
+
+    .justify-content-space-around {
+      justify-content: space-around;
+    }
+
+    .justify-content-space-evenly {
+      justify-content: space-evenly;
+    }
+
+    .h-600px {
+      height: 600px;
+    }
+
+    .h-300px {
+      height: 300px;
+    }
+
+    .h-auto {
+      height: auto !important;
+    }
+
+    .align-content-start {
+      align-content: flex-start;
+    }
+
+    .align-content-end {
+      align-content: flex-end;
+    }
+
+    .align-content-center {
+      align-content: center;
+    }
+
+    .align-items-start {
+      align-items: flex-start;
+    }
+
+    .align-items-end {
+      align-items: flex-end;
+    }
+
+    .align-items-center {
+      align-items: center;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>● flex-wrap: Flex Items의 줄바꿈 여부 지정</h1>
+  <h2>- nowrap (줄바꿈 없음, 기본값)</h2>
+  <h4>기본적으로 한 줄에서 모든 Item을 표시하려고 함</h4>
+  <div class="flex-container flex-nowrap">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+    <div>6</div>
+  </div>
+  <h2>- wrap (자동 줄바꿈)</h2>
+  <div class="flex-container flex-wrap">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+    <div>6</div>
+  </div>
+  <p>브라우저 창 크기를 조절해보자</p>
+  <br><br>
+
+  <h1>● justify-content: 주축의 정렬 방법</h1>
+  <h4>일반적으로 방향이 row일 때 수평 정렬에 자주 사용됨</h4>
+  <h2>- flex-start (시작점으로 정렬, 기본값)</h2>
+  <div class="flex-container justify-content-start">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+  </div>
+  <h2>- flex-end (끝점으로 정렬)</h2>
+  <div class="flex-container justify-content-end">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+  </div>
+  <h2>- center (가운데 정렬)</h2>
+  <div class="flex-container justify-content-center">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+  </div>
+  <h2>- space-between (elements 사이에 동일한 간격 유지)</h2>
+  <div class="flex-container justify-content-space-between">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+  </div>
+  <h2>- space-around (elements 주위에 동일한 간격 유지)</h2>
+  <div class="flex-container justify-content-space-around">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+  </div>
+  <h2>- space-evenly (elements 사이 및 주위에 동일한 간격 유지)</h2>
+  <div class="flex-container justify-content-space-evenly">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+  </div>
+
+  <h1>● align-content: 교차축의 여러 줄 정렬 방법</h1>
+  <!-- 동작 조건:
+    1. 2줄 이상일 때만 적용 => flex-wrap: wrap;
+    2. 정렬 가능한 충분한 height 및 여백이 있어야 함
+  -->
+  <h2>- stretch (기본값)</h2>
+  <h4>Flex Item에 height 값이 없으면 한 줄에서 최대한 늘린 값을 가짐</h4>
+  <div class="flex-container flex-wrap h-600px">
+    <!-- block의 특성이 그대로 90도로 누운 느낌 -->
+    <div class="h-auto">1</div>
+    <div class="h-auto">2</div>
+    <div class="h-auto">3</div>
+    <div class="h-auto">4</div>
+    <div class="h-auto">5</div>
+    <div class="h-auto">6</div>
+  </div>
+  <h2>- flex-start (시작점 정렬) </h2>
+  <div class="flex-container flex-wrap h-600px align-content-start">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+    <div>6</div>
+  </div>
+  <h2>- flex-end (끝점 정렬) </h2>
+  <div class="flex-container flex-wrap h-600px align-content-end">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+    <div>6</div>
+  </div>
+  <h2>- center (가운데 정렬) </h2>
+  <div class="flex-container flex-wrap h-600px align-content-center">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+    <div>6</div>
+  </div>
+  <br><br>
+
+  <h1>● align-items: 교차축의 한 줄 정렬 방법</h1>
+  <h2>- flex-start (해당 줄의 시작점 정렬)</h2>
+  <div class="flex-container flex-wrap h-600px align-items-start">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+    <div>6</div>
+  </div>
+  <h2>- flex-end (해당 줄의 끝점 정렬)</h2>
+  <div class="flex-container flex-wrap h-600px align-items-end">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+    <div>6</div>
+  </div>
+  <h2>- center (해당 줄의 가운데 정렬)</h2>
+  <div class="flex-container flex-wrap h-600px align-items-center">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+    <div>6</div>
+  </div>
+
+  <h1>● align-items 활용</h1>
+  <!-- align-items는 한 줄만 있어도 동작함 => 수직 정렬에 자주 사용 -->
+  <h2>- flex-start</h2>
+  <div class="flex-container h-300px align-items-start">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+  </div>
+  <h2>- flex-end</h2>
+  <div class="flex-container h-300px align-items-end">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+  </div>
+  <h2>- center</h2>
+  <div class="flex-container h-300px align-items-center">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+  </div>
+
+  <!-- Tip! flex를 이용한 완벽한 정중앙 정렬 -->
+  <!-- Quiz: 인라인 스타일로 작성해보자 -->
+  <h1>요소의 정중앙 정렬</h1>
+  <div 
+    class="flex-container h-600px" 
+    style="display: flex; align-items: center; justify-content: center;"
+  >
+    <div>1</div>
+  </div>
+</body>
+
+</html>

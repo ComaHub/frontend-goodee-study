@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flex Box Test</title>
+
+  <style>
+    .container {
+      background-color: gray;
+
+      /* block element는 기본적으로 수직으로 쌓임 => 수평 정렬하고 싶다면...
+        => 정렬하려는 elements의 parent element에 display: flex;
+      */
+      display: flex;
+    }
+
+    .container > .item {
+      width: 100px;
+      height: 100px;
+      border: 3px dashed gold;
+      background-color: black;
+    }
+
+    .parent {
+      height: 200px;
+      background-color: black;
+    }
+
+    .child-1 {
+      width: 100px;
+      height: 100px;
+      background-color: gold;
+    }
+
+    .child-2 {
+      width: 150px;
+      height: 150px;
+      background-color: royalblue;
+    }
+
+    .child-3 {
+      width: 100px;
+      height: 200px;
+      background-color: lime;
+    }
+
+    .d-flex {
+      display: flex;
+    }
+
+    .d-inline-flex {
+      display: inline-flex;
+    }
+
+    .flex-direction-row {
+      flex-direction: row;
+    }
+
+    .flex-direction-row-reverse {
+      flex-direction: row-reverse;
+    }
+
+    .flex-direction-column {
+      flex-direction: column;
+    }
+
+    .flex-direction-column-reverse {
+      flex-direction: column-reverse;
+    }
+
+    .d-flex + .d-flex {
+      margin-top: 20px;
+    }
+
+    .d-inline-flex + .d-inline-flex {
+      margin-left: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Flexible Box: 1차원 Layout 생성 기술 / element 정렬에 유용 -->
+  <div class="container">
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+  </div>
+  <br><br>
+
+  <h1>● display</h1>
+  <h2>- flex: Flex container를 block element처럼 정의</h2>
+  <!-- Flex Container: 정렬할 elements의 묶음 -->
+  <div class="parent d-flex">
+    <!-- Flex Item: 정렬할 element -->
+    <div class="child-1">1</div>
+    <div class="child-2">2</div>
+    <div class="child-3">3</div>
+  </div>
+  <div class="parent d-flex">
+    <div class="child-1">1</div>
+    <div class="child-2">2</div>
+    <div class="child-3">3</div>
+  </div>
+  <div class="parent d-flex">
+    <div class="child-1">1</div>
+    <div class="child-2">2</div>
+    <div class="child-3">3</div>
+  </div>
+  <br><br>
+
+  <h2>- inline-flex: Flex container를 inline element처럼 정의</h2>
+  <div class="parent d-inline-flex">
+    <div class="child-1">1</div>
+    <div class="child-2">2</div>
+    <div class="child-3">3</div>
+  </div>
+  <div class="parent d-inline-flex">
+    <div class="child-1">1</div>
+    <div class="child-2">2</div>
+    <div class="child-3">3</div>
+  </div>
+  <div class="parent d-inline-flex">
+    <div class="child-1">1</div>
+    <div class="child-2">2</div>
+    <div class="child-3">3</div>
+  </div>
+
+  <h1>● flex-direction: Flex Item의 정렬방향 설정</h1>
+  <h4>(주의! 방향에 따라 주축이 바뀜)</h4>
+  <h2>- row: 좌 => 우 정방향</h2>
+  <div class="parent d-flex flex-direction-row">
+    <div class="child-1">1</div>
+    <div class="child-2">2</div>
+    <div class="child-3">3</div>
+  </div>
+  <h2>- row-reverse: 우 => 좌 역방향</h2>
+  <div class="parent d-flex flex-direction-row-reverse">
+    <div class="child-1">1</div>
+    <div class="child-2">2</div>
+    <div class="child-3">3</div>
+  </div>
+  <h2>- column: 위 => 아래 정방향</h2>
+  <div class="parent d-flex flex-direction-column">
+    <div class="child-1">1</div>
+    <div class="child-2">2</div>
+    <div class="child-3">3</div>
+  </div>
+  <h2>- column-reverse: 아래 => 위 역방향</h2>
+  <div class="parent d-flex flex-direction-column-reverse">
+    <div class="child-1">1</div>
+    <div class="child-2">2</div>
+    <div class="child-3">3</div>
+  </div>
+</body>
+
+</html>
