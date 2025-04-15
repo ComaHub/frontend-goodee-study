@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flex Item Test</title>
+
+  <style>
+    .container {
+      width: 500px;
+      height: 300px;
+      background-color: black;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container > .item {
+      width: 100px;
+      height: 100px;
+      font-size: 24px;
+      font-weight: bold;
+      text-align: center;
+      line-height: 100px;
+
+      /* flex-grow: 각 Item이 어디까지 늘어날지 설정 */
+      /* 실습 1) 너비가 1:1:1 비율로 증가 */
+      flex-grow: 1;
+
+      /* 실습 3) 요소의 크기가 비율로서 활용 */
+      flex-basis: 0;
+    }
+
+    .container > .item:first-child {
+      background-color: gold;
+    }
+
+    .container > .item:first-child + .item {
+      background-color: violet;
+    }
+
+    .container > .item:last-child {
+      background-color: lime;
+
+      /* 실습 2) 너비가 1:1:2 비율로 증가 */
+      flex-grow: 2;
+    }
+
+    .flex-container {
+      display: flex;
+      background-color: black;
+    }
+
+    .flex-container > div {
+      width: 100px;
+      height: 100px;
+      margin: 10px;
+      background-color: gold;
+      text-align: center;
+      line-height: 100px;
+
+      font-size: 30px;
+    }
+
+    .flex-container + .flex-container {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Flex Item과 관련된 속성 -->
+  <div class="container">
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+  </div>
+
+  <h1>● order: Flex Item의 순서</h1>
+  <h4>기본값 0, 음수 허용, 낮은 숫자부터 큰 순서대로</h4>
+  <div class="flex-container">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+  </div>
+  <div class="flex-container">
+    <div>1</div>
+    <div style="order: 17;">2</div>
+    <div style="order: -1;">3</div>
+    <div style="order: 2;">4</div>
+    <div>5</div>
+  </div>
+
+  <h1>● flex-grow: Flex Item의 증가 너비에 대한 비율</h1>
+  <h4>flex-basis를 제외한 나머지 여백을 비율에 맞게 증가 / 기본값 0, 단위 없음</h4>
+  <div class="flex-container">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+  </div>
+  <div class="flex-container">
+    <div>1</div>
+    <div style="flex-grow: 1;">2</div>
+    <div>3</div>
+  </div>
+  <div class="flex-container">
+    <div>1</div>
+    <div style="flex-grow: 2;">2</div>
+    <div style="flex-grow: 1;">3</div>
+  </div>
+
+  <h1>● flex-shrink: Flex Item의 감소 너비에 대한 비율</h1>
+  <h4>
+    Flex Item은 기본적으로 정렬 공간이 부족하면 너비가 자동으로 줄어듦<br>
+    너비를 비율에 맞게 감소 / 기본값 1, 단위 없음
+  </h4>
+  <div class="flex-container">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+  </div>
+  <div class="flex-container" style="width: 300px;">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+  </div>
+  <div class="flex-container" style="width: 300px;">
+    <div style="flex-shrink: 0;">1</div>
+    <div style="flex-shrink: 0;">2</div>
+    <div style="flex-shrink: 0;">3</div>
+  </div>
+
+  <h1>● flex-basis: Flex Item의 기준 너비</h1>
+  <h4>기본값 auto: element의 content 너비를 기준 너비로 사용</h4>
+  <div class="flex-container">
+    <div style="width: auto; flex-grow: 1;">Have</div>
+    <div style="width: auto; flex-grow: 1;">a</div>
+    <div style="width: auto; flex-grow: 2;">nice day!</div>
+  </div>
+  <h2>- 값이 0인 경우(주로 사용): 기준 너비 없음 => 요소의 크기가 비율로 쓰임</h2>
+  <div class="flex-container">
+    <div style="flex-grow: 1; flex-basis: 0;">Have</div>
+    <div style="flex-grow: 1; flex-basis: 0;">a</div>
+    <div style="flex-grow: 2; flex-basis: 0;">nice day!</div>
+  </div>
+
+  <!-- Tip! 자주 사용하는 pattern -->
+  <h1>● element의 content 크기를 같은 비율로 나누기</h1>
+  <h2>- flex: 1 (단축 속성: grow 1, shrink 1, basis 0%가 자동 삽입)</h2>
+  <div class="flex-container">
+    <div style="flex: 1;">1</div>
+    <div style="flex: 1;">1</div>
+    <div style="flex: 1;">1</div>
+  </div>
+
+  <h1>● 원하는 비율로 나누기</h1>
+  <h2>- flex: n</h2>
+  <div class="flex-container">
+    <div style="flex: 1;">1</div>
+    <div style="flex: 2;">2</div>
+    <div style="flex: 3;">3</div>
+  </div>
+
+  <!-- 연습 -->
+  <h1>● 연습!</h1>
+  <div class="flex-container">
+    <div style="flex: 1;">메뉴버튼</div>
+    <div style="flex: 4;">로고</div>
+    <div style="flex: 1;">검색창</div>
+  </div>
+  <div class="flex-container">
+    <div style="flex: 1;">#</div>
+    <div style="flex: 3;">검색영역</div>
+    <div style="flex: 2;">버튼들</div>
+    <div style="flex: 5;">공백</div>
+    <div style="flex: 2;">버튼들</div>
+  </div>
+  <div class="flex-container">
+    <div style="width: 150px;">체크박스</div>
+    <div style="width: 150px; flex-grow: 1;">입력창</div>
+    <div style="width: 150px;">수정/삭제</div>
+  </div>
+
+  <h1>● align-self: 특정 Item만 수직 정렬하기</h1>
+  <div style="height: 200px; background-color: black; display: flex; justify-content: flex-end;">
+    <button type="button" style="width: 50px; height: 40px;">추가</button>
+    <button type="button" style="width: 50px; height: 40px;">수정</button>
+    <button type="button" style="width: 50px; height: 40px; align-self: flex-end;">삭제</button>
+  </div>
+</body>
+
+</html>
+
+<!-- Quiz
+  Q1: "display: flex;가 지정된 요소의 자식 요소를 Flex ??? 이라 부릅니다."
+      에서 ???에 들어갈 용어는?
+  A1: Item
+
+  Q2: Flex Container의 주축(Main-axis), 방향을 지정하는 속성은?
+  A2: flex-direction (기본값 row => 수평 정렬)
+
+  Q3: flex-wrap 속성의 기본값은?
+  A3: nowrap (공간이 부족해도 Item이 한 줄에 전부 표시)
+
+  Q4: 교차축(Cross-axis)의 한 줄 정렬을 위한 속성?
+  A4: align-items
+
+  Q5: Flex Item의 증가 너비를 지정하는 속성은?
+  A5: flex-grow
+
+  Q6: flex-grow 속성의 기본값은?
+  A6: 0 (기본적으로 안 늘어남)
+
+  Q7: flex-shrink 속성의 기본값은?
+  A7: 1 (기본적으로 같은 비율로 줄어듦)
+-->

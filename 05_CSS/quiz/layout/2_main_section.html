@@ -7,6 +7,29 @@
   <title>Document</title>
 
   <style>
+    .nav-container {
+      width: 100%;
+      height: 40px;
+      padding: 10px;
+      background-color: #fff;
+      z-index: 1;
+      position: fixed;
+      top: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .menu {
+      margin-right: 40px;
+      display: flex;
+      list-style: none;
+    }
+
+    .menu-item {
+      margin-left: 20px;
+    }
+
     .main-background {
       height: 500px;
       padding: 30px 0 0 0;
@@ -99,6 +122,14 @@
   </style>
 </head>
 <body>
+  <nav class="nav-container">
+    <h1>Shoes Shop</h1>
+    <ul class="menu">
+      <li class="menu-item">Products</li>
+      <li class="menu-item">Services</li>
+    </ul>
+  </nav>
+
   <div class="main-background">
     <h4 class="main-title">Buy our excellent shoes!</h4>
     <p class="main-content">
