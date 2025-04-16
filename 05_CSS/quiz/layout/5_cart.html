@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cart System</title>
+
+  <style>
+    /* 기본 스타일 */
+    * {
+      box-sizing: border-box;
+    }
+
+    .cart-background {
+      padding: 20px;
+      background-color: lightsteelblue;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .inner {
+      width: 100%;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .inner > h2 {
+      display: inline-block;
+      width: 80%;
+      max-width: 700px;
+    }
+
+    .cart-list {
+      width: 80%;
+      max-width: 700px;
+      background-color: white;
+      border-radius: 10px;
+
+      border-collapse: collapse;
+    }
+
+    table tr {
+      height: 70px;
+    }
+
+    thead > tr > th:nth-child(2) {
+      width: 300px;
+    }
+
+    tbody > tr {
+      border-top: 2px solid lightsteelblue;
+    }
+
+    tbody img {
+      width: 50px;
+    }
+
+    tbody td:not(:nth-child(2)):nth-child(n) {
+      text-align: center;
+    }
+
+    tfoot {
+      text-align: right;
+      border-top: 2px solid lightsteelblue;
+    }
+
+    tfoot td {
+      padding: 15px;
+    }
+
+    .footer {
+      width: 80%;
+      max-width: 700px;
+      margin: 20px 0 0 0;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer a {
+      color: purple;
+    }
+
+    .footer-button {
+      width: 120px;
+      height: 50px;
+      font-size: 18px;
+      color: white;
+      background-color: orange;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+
+      transition: 1s;
+    }
+
+    .footer-button:hover {
+      background-color: lime;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="cart-background">
+    <!-- 가운데 정렬을 위한 div -->
+    <div class="inner">
+      <h2>장바구니</h2>
+      <table class="cart-list">
+        <!-- 4행 5열 -->
+        <thead>
+          <tr>
+            <th></th>
+            <th>ITEM</th>
+            <th>AMOUNT</th>
+            <th>PRICE</th>
+            <th>TOTAL</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><img src="images/item1.png" alt="Camera"></td>
+            <td>카메라</td>
+            <td>1</td>
+            <td>100,000</td>
+            <td>100,000</td>
+          </tr>
+          <tr>
+            <td><img src="images/item2.png" alt="Shoes"></td>
+            <td>신발</td>
+            <td>2</td>
+            <td>59,000</td>
+            <td>118,000</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="5">주문금액 218,000원</td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+    <div class="footer">
+      <p><a href="#">계속 쇼핑하기</a></p>
+      <button type="button" class="footer-button">구매하기</button>
+    </div>
+  </div>
+</body>
+
+</html>
