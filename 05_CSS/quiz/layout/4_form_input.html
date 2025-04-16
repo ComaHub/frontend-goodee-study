@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Input</title>
+
+  <style>
+    .text-input {
+      width: 120px;
+      padding: 5px 10px;
+      font-size: 20px;
+      outline: none;
+      border: 2px solid silver;
+      border-radius: 5px;
+
+      transition: 1s;
+    }
+
+    .text-input:focus {
+      /* border: 2px solid lime; */
+      border-color: lime;
+    }
+
+    .form-background {
+      height: 700px;
+      background-color: black;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .form-container {
+      width: 80%;
+      max-width: 600px;
+      padding: 30px;
+      box-sizing: border-box;
+      background-color: white;
+    }
+
+    .form-style {
+      width: 100%;
+      margin: 10px 0;
+      padding: 10px;
+      font-size: 20px;
+      outline: none;
+      border: 2px solid whitesmoke;
+      border-radius: 10px;
+      box-sizing: border-box;
+
+      transition: 1s;
+    }
+
+    .form-style:focus {
+      border: 2px solid lime;
+    }
+
+    #your-email:focus::placeholder {
+      color: transparent;
+    }
+
+    .your-name {
+      display: flex;
+      column-gap: 20px;
+    }
+
+    #your-message {
+      width: 100%;
+      height: 150px;
+      margin: 10px 0;
+      font-size: 20px;
+      outline: none;
+      border: 2px solid whitesmoke;
+      border-radius: 10px;
+      resize: none;
+
+      transition: 1s;
+    }
+
+    #your-message:focus {
+      border: 2px solid lime;
+    }
+
+    .form-button {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .send-button {
+      width: 120px;
+      height: 30px;
+      color: white;
+      background-color: orange;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+
+      transition: 1s;
+    }
+
+    .send-button:hover {
+      background-color: lime;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>연습</h2>
+  <form>
+    <input type="text">
+    <input type="text" class="text-input">
+    <button type="submit">전송</button>
+    <br>
+
+    <!-- input 태그 사용할 때 label도 같이 사용 (권장) -->
+    <p>
+      <label for="name">너의 이름은</label>
+    </p>
+    <input type="text" id="name" class="text-input">
+  </form>
+  <br>
+
+  <h2>실전</h2>
+  <div class="form-background">
+    <div class="form-container">
+      <form>
+        <h3>Contact Us</h3>
+        <div>
+          <p><label for="your-email">Your Email</label></p>
+          <input type="email" id="your-email" class="form-style" placeholder="email@example.com">
+        </div>
+        <div class="your-name">
+          <div>
+            <p><label for="first-name">First Name</label></p>
+            <input type="text" id="first-name" class="form-style">
+          </div>
+          <div>
+            <p><label for="last-name">Last Name</label></p>
+            <input type="text" id="last-name" class="form-style">
+          </div>
+        </div>
+        <div>
+          <p><label for="your-message">Message</label></p>
+          <textarea id="your-message"></textarea>
+        </div>
+        <div class="form-button">
+          <label><input type="checkbox" style="width: 20px; height: 20px; vertical-align: middle;">Agree</label>
+          <button type="submit" class="send-button">SEND</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+
+</html>
