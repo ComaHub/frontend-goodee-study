@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product List</title>
+
+  <style>
+    /* 단방향 Animation 만드는 순서
+      1. 시작 Style 만들기 (before)
+      2. 최종 Style 만들기 (after)
+      3. 언제, 어떻게 변하는지 정의하기 (예: hover)
+        => CSS로는 hover, active 등이 전부 / JS 배우면 더 다양한 상황 활용 가능
+      4. transition 적용하기
+    */
+    .shop-background {
+      padding: 20px;
+      background-color: #eee;
+    }
+
+    .shop-container {
+      width: 90%;
+      margin: 0 auto;
+      display: flex;
+    }
+
+    .shop-item {
+      width: 33%;
+      margin: 10px;
+      overflow: hidden;
+
+      position: relative;
+    }
+
+    .shop-item > img {
+      width: 100%;
+
+      /* Overlay와 image의 높이가 안 맞는 현상 => img는 inline element라서 글자의 베이스라인이 존재 */
+      display: block;
+    }
+
+    .overlay {
+      width: 100%;
+      height: 100%;
+      color: #fff;
+      background-color: #000;
+
+      position: absolute;
+      top: 0;
+      left: 0;
+      /* Tip! 화면 전체 영역 덮기(ex. Modal창의 background, 영상 덮개 등) */
+      /* position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 20; => 최대한 높게 */
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      row-gap: 20px;
+
+      /* 시작 상태 */
+      opacity: 0;
+      transition: 0.5s;
+    }
+
+    .overlay:hover {
+      /* 최종 상태 */
+      opacity: 0.7;
+    }
+
+    .overlay > button {
+      width: 100px;
+      height: 50px;
+      outline: none;
+      border: 2px solid white;
+      border-radius: 10px;
+      color: #fff;
+      background-color: transparent;
+      cursor: pointer;
+
+      transition: 0.5s;
+    }
+
+    .overlay > button:hover {
+      font-weight: bold;
+      color: #000;
+      background-color: #fff;
+    }
+
+    .shop-container > .shop-item:last-child > .overlay {
+      top: 100%;
+      opacity: 0.7;
+
+      /* 위치 옮기기: position / transform 중에 선택 */
+    }
+
+    .shop-container > .shop-item:last-child > .overlay > span {
+      margin-bottom: 50%;
+    }
+
+    .shop-container > .shop-item:last-child:hover > .overlay {
+      top: 50%;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="shop-background">
+    <div class="shop-container">
+      <div class="shop-item">
+        <img src="images/product1.jpg" alt="Product1">
+        <div class="overlay">이 상품은 ...</div>
+      </div>
+
+      <div class="shop-item">
+        <img src="images/product2.jpg" alt="Product2">
+        <div class="overlay">
+          <button type="button">상세보기</button>
+          <button type="button">구매하기</button>
+        </div>
+      </div>
+
+      <div class="shop-item">
+        <img src="images/product3.jpg" alt="Product3">
+        <div class="overlay"><span>Price: $4</span></div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
