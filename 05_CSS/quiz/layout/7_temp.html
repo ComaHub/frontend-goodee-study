@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Log-in</title>
+
+  
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nanum+Pen+Script&display=swap');
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Nanum Pen Script", cursive;
+      background-color: black;
+    }
+
+    .form-background {
+      width: 100%;
+      padding: 30px;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .form-box {
+      width: 400px;
+      background-color: #fff;
+      padding: 20px;
+      border: 5px solid gold;
+      border-radius: 15px;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    form > div {
+      width: 100%;
+      padding: 20px;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      position: relative;
+    }
+
+    label {
+      width: 50px;
+      font-size: 30px;
+      text-align: right;
+      margin-right: 10px;
+    }
+
+    .material-symbols-outlined {
+      font-size: 20px;
+      color: #aaa;
+    }
+
+    .form-style {
+      padding: 10px;
+      font-size: 18px;
+      outline: none;
+      border: 1px solid whitesmoke;
+      border-radius: 10px;
+
+      transition: 0.5s;
+    }
+
+    .form-style:focus {
+      border-color: lime;
+    }
+
+    #form-btn {
+      outline: none;
+      border: none;
+      background-color: transparent;
+      cursor: pointer;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      position: absolute;
+      right: 25px;
+    }
+
+    .footer {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .footer > button {
+      font-family: "Nanum Pen Script", cursive;
+      width: 100%;
+      height: 40px;
+      margin: 10px;
+      font-size: 30px;
+      outline: none;
+      border: none;
+      border-radius: 10px;
+      background-color: gold;
+      cursor: pointer;
+
+      transition: transform 0.5s;
+    }
+
+    .footer > button:hover {
+      border: 1px solid lime;
+      transform: scale(1.1);
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="form-background">
+    <div class="form-box">
+      <form>
+        <div>
+          <label for="form-id">ID : </label>
+          <input type="text" id="form-id" class="form-style">
+        </div>
+        <div>
+          <label for="form-pw">PW : </label>
+          <input type="password" id="form-pw" class="form-style">
+          <button type="button" id="form-btn" onclick="visible()"><span class="material-symbols-outlined">visibility_off</span></button>
+        </div>
+        <div class="footer">
+          <button type="submit">로 그 인</button>
+          <button type="button">회원가입</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    function visible() {
+      const visibleEl = document.querySelector('#form-btn span');
+
+      if (visibleEl.textContent === 'visibility') {
+        document.querySelector('#form-pw').type = "text";
+        visibleEl.textContent = "visibility_off";
+      } else {
+        document.querySelector('#form-pw').type = "password";
+        visibleEl.textContent = "visibility";
+      }
+
+    }
+  </script>
+</body>
+
+</html>
