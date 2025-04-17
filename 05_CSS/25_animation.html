@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animation Test</title>
+
+  <!-- Google Material Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+  <!-- Animate.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+  <style>
+    .btn {
+      padding: 15px 20px;
+      font-size: 20px;
+      background-color: skyblue;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .btn-shake:hover {
+      animation-name: shaker;
+      animation-duration: 0.2s;
+    }
+
+    .btn-shake-hard:hover {
+      animation-name: shaker-hard;
+      animation-duration: 0.2s;
+      animation-iteration-count: infinite;
+    }
+
+    #modal {
+      width: 300px;
+      height: 200px;
+      border: 1px solid lightgray;
+      border-radius: 6px;
+      background-color: whitesmoke;
+      padding: 20px;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    #modal img {
+      width: 160px;
+      height: 160px;
+      text-align: center;
+      object-fit: cover;
+    }
+
+    .shake-shake {
+      animation: shaker-hard 0.2s;
+    }
+
+    .material-symbols-outlined {
+      font-size: 100px;
+      cursor: pointer;
+    }
+
+    .turn:hover {
+      animation: turn 0.4s;
+      /* Animation 끝났을 때 마지막 상태 유지 */
+      animation-fill-mode: forwards;
+      /* animation-iteration-count: 3; */
+      /* animation-iteration-count: infinite; */
+    }
+
+    .spin {
+      animation: spin 0.6s linear;
+      animation-iteration-count: infinite;
+    }
+
+    /* CSS @keyframes Rule: Animation Code 설정 */
+    @keyframes shaker {
+      /* Animation 진행과정 선택 지정 (0 - 100%) => from (0%와 동일) / to (100%와 동일) */
+      0% { transform: rotate(0deg); }
+      25% { transform: rotate(-8deg); }
+      50% { transform: rotate(8deg); }
+      75% { transform: rotate(-8deg); }
+      0% { transform: rotate(0deg); }
+    }
+
+    @keyframes shaker-hard {
+      0% { transform: translate(1px, 1px) rotate(0deg); }
+      10% { transform: translate(-1px, -2px) rotate(-1deg); }
+      20% { transform: translate(-2px, 0px) rotate(1deg); }
+      30% { transform: translate(2px, 2px) rotate(0deg); }
+      40% { transform: translate(1px, -1px) rotate(1deg); }
+      50% { transform: translate(-1px, 2px) rotate(-1deg); }
+      60% { transform: translate(-2px, 1px) rotate(0deg); }
+      70% { transform: translate(2px, 1px) rotate(-1deg); }
+      80% { transform: translate(-1px, -1px) rotate(1deg); }
+      90% { transform: translate(1px, 2px) rotate(0deg); }
+      100% { transform: translate(1px, -2px) rotate(-1deg); }
+    }
+
+    @keyframes turn {
+      0% { transform: rotate(0deg); }
+      25% { transform: rotate(-15deg); }
+      100% { transform: rotate(45deg); }
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+
+<body>
+  <h2>● Shake animation 만들기</h2>
+  <button type="button" class="btn btn-shake">흔들흔들</button>
+  <button type="button" class="btn btn-shake-hard">부들부들</button>
+
+  <h2>● Animation을 이용한 창 흔들기</h2>
+  <div id="modal">
+    <div>
+      <img src="images/19.png" alt="19">
+    </div>
+    <div>
+      <label for="age">나이: </label>
+      <input type="text" id="age">
+      <button type="button" onclick="shakeModal()">등록</button>
+    </div>
+  </div>
+
+  <h2>● Turn animation 만들기</h2>
+  <span class="material-symbols-outlined turn">lunch_dining</span>
+
+  <h2>● Spin animation 만들기</h2>
+  <span class="material-symbols-outlined spin" style="animation-duration: 1s;">settings</span>
+  <span class="material-symbols-outlined spin" style="animation-duration: 0.75s;">settings</span>
+  <span class="material-symbols-outlined spin" style="animation-duration: 0.5s;">settings</span>
+  <span class="material-symbols-outlined spin" style="animation-duration: 0.25s;">settings</span>
+
+  <h1 class="animate__animated animate__bounce">An animated element</h1>
+  <h1 class="animate__animated animate__bounce animate__delay-2s">An animated element</h1>
+  <h1 class="animate__animated animate__bounce animate__faster">An animated element</h1>
+  <h1 class="animate__animated animate__bounce animate__repeat-3">An animated element</h1>
+
+  <script>
+    const modalEl = document.querySelector('#modal');
+    const ageInputEl = document.querySelector('#age');
+
+    function shakeModal() {
+      // 유효성 검사 
+      console.log(ageInputEl.value);
+      if (ageInputEl.value === '') {
+        modalEl.classList.add('shake-shake');
+
+        // setTimeout() => 지정한 시간 뒤에 기능 실행
+        setTimeout(() => {
+          modalEl.classList.remove('shake-shake');
+        }, 500);
+      }
+      
+    }
+  </script>
+</body>
+
+</html>
