@@ -10,15 +10,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
 
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nanum+Pen+Script&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
 
     * {
       box-sizing: border-box;
     }
 
     body {
-      font-family: "Nanum Pen Script", cursive;
-      background-color: black;
+      font-family: "Jua", sans-serif;
+      background-color: #fff;
     }
 
     .form-background {
@@ -34,8 +34,9 @@
       width: 400px;
       background-color: #fff;
       padding: 20px;
-      border: 5px solid gold;
+      border: 5px solid greenyellow;
       border-radius: 15px;
+      box-shadow: 10px 10px 5px #aaa;
 
       display: flex;
       justify-content: center;
@@ -54,7 +55,7 @@
     }
 
     label {
-      width: 50px;
+      width: 60px;
       font-size: 30px;
       text-align: right;
       margin-right: 10px;
@@ -99,7 +100,7 @@
     }
 
     .footer > button {
-      font-family: "Nanum Pen Script", cursive;
+      font-family: "Jua", sans-serif;
       width: 100%;
       height: 40px;
       margin: 10px;
@@ -107,15 +108,16 @@
       outline: none;
       border: none;
       border-radius: 10px;
-      background-color: gold;
+      background-color: greenyellow;
       cursor: pointer;
 
       transition: transform 0.5s;
     }
 
     .footer > button:hover {
-      border: 1px solid lime;
+      border: 1px solid green;
       transform: scale(1.1);
+      box-shadow: 5px 5px 5px #aaa;
     }
 
   </style>
@@ -147,10 +149,10 @@
       const visibleEl = document.querySelector('#form-btn span');
 
       if (visibleEl.textContent === 'visibility') {
-        document.querySelector('#form-pw').type = "text";
+        document.querySelector('#form-pw').type = "password";
         visibleEl.textContent = "visibility_off";
       } else {
-        document.querySelector('#form-pw').type = "password";
+        document.querySelector('#form-pw').type = "text";
         visibleEl.textContent = "visibility";
       }
 
