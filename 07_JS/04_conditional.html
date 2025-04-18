@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conditional Test</title>
+</head>
+
+<body>
+  <script>
+    // 조건문: 조건식의 결과(T/F)에 따라 다른 Code 실행 (if, switch)
+    // if문의 형태
+    // if (condition) {
+      // Code
+    //
+
+    let isShow = true;
+    const checked = false;
+
+    if (isShow) {
+      console.log("Show!");
+    }
+
+    if (checked) {
+      console.log("Checked!");
+    }
+
+    // if ~ else
+    isShow = false;
+    if (isShow) {
+      console.log("보임!");
+    } else {
+      console.log("숨김!");
+    }
+
+    // if ~ else if ~ else
+    const score = 95;
+
+    if (score >= 90) {
+      console.log("A등급!!");
+    } else if (score >= 80) {
+      console.log("B등급!");
+    } else if (score >= 70) {
+      console.log("C등급");
+    } else {
+      console.log("D등급..");
+      
+    }
+  </script>
+</body>
+
+</html>
