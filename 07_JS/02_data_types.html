@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data Type Test</title>
+</head>
+
+<body>
+  <script>
+    // Data Type (자료형)
+
+    // String (문자열) => "data", 'data', `data`
+    const myName = "Damon";
+    const email = 'coma@example.com';
+    const hello = `Hello ${myName}?!`; // Template Literal(ES6)
+
+    // Backtick 미사용시 (ES6 이전)
+    const concatString = "Hello " + myName + "?!";
+
+    console.log(myName);
+    console.log(email);
+    console.log(hello);
+    console.log(concatString);
+
+    // Number (숫자) => 정수, 부동소수점 숫자를 나타냄
+    const number = 123;
+    const opacity = 0.57;
+
+    console.log(number);
+    console.log(opacity);
+    
+    // Boolean (논리) => true, false / 이분법적으로 구분해야 하는 상황에서 사용 (조건문 / 반복문 판단 시)
+    const checked = true;
+    const isShow = false;
+
+    console.log(checked);
+    console.log(isShow);
+
+    // 조건식
+    const numX = 5;
+    const numY = "5";
+    const numZ = 6;
+    console.log(numX === numY);
+    console.log(numX === numZ);
+    
+    // Undefined (미정의) => 아무것도 정의되지 않은 상태 / 변수 초기화를 하지 않으면 자동으로 undefined 할당
+    let undef;
+    console.log(undef);
+    
+    const obj = {
+      abc: 123
+    };
+
+    console.log(obj.abc);
+    console.log(obj.xyz);
+    
+    // Null (비어있음) => 어떤 값이 의도적으로 비어있음을 나타냄 / undefined와 다르게 개발자의 의도가 들어감
+    let name = null;
+    console.log(name);
+
+    name = "Damon";
+    console.log(name);
+    
+    // Object (객체) => 관련있는 데이터들을 Key-Value 쌍의 형태로 저장 / {} 방식을 주로 사용
+    const user = {
+      // 속성(Property)
+      name: "Damon",
+      age: 17,
+      isMarried: false
+    };
+
+    console.log(user);
+    // 객체 내부 특정 데이터 지정 출력
+    console.log(user.name);
+    console.log(user.age);
+    console.log(user.isMarried);
+
+    // Array (배열) => 여러 데이터를 순차적 저장 / [] 방식 주로 사용 / Index는 0부터 시작
+    const fruits = ["apple", "banana", "cherry"]
+
+    console.log(fruits);
+    // 배열 내부 특정 데이터 지정 출력
+    console.log(fruits[0]);
+    console.log(fruits[1]);
+    console.log(fruits[2]);
+
+    // 참고: 다른 타입의 데이터를 포함할 수 있지만, 대부분의 경우 같은 종류의 데이터만 담음
+    const arr = ["Damon", 17, false]
+
+    // 용례) 상품 리스트, 사용자 리스트 등
+    const productList = [
+      {
+        productId: 1,
+        productName: '고려은단 비타민C',
+        price: 32900,
+        productImg: 'https://이미지경로',
+        brand: '고려은단'
+      }, 
+      {
+        productId: 2,
+        productName: '콘드로이친1200',
+        price: 285000,
+        productImg: 'https://이미지경로',
+        brand: '관절엔'
+      }, 
+      {
+        productId: 3,
+        productName: '에버콜라겐C',
+        price: 210000,
+        productImg: 'https://이미지경로',
+        brand: '뉴트리'
+      }
+    ];
+
+    console.log(productList[0].productName);
+
+    const userList = [
+      {
+        userId: 'geoblo',
+        name: '김재현',
+        age: 99,
+        email: 'geoblo@naver.com',
+        hobby: ['배드민턴', '싸이클', '스노우보드', '스쿼시', '탁구', '스쿠버 다이빙']
+      },
+      {
+        userId: 'javakim',
+        name: '김자바',
+        age: 10,
+        email: 'jsjs@gmail.com',
+        hobby: ['멍때리기']
+      }
+    ];
+    
+    console.log(userList[0].hobby[2]);
+    
+    // 참고) JS는 매우 유연한 언어 => 변수에 여러 Data type을 넣을 수 있고, 값을 넣는 순간 타입이 결정됨 => 동적 타입 언어
+    let e = 1;
+    console.log(typeof e); // typeof: 변수의 Data type을 확인
+
+    e = "abc";
+    console.log(typeof e);
+    
+    // 참고) false로 취급되는 값(falsy) => false, 0, ""(빈 문자열), null, undefined, NaN(Not a Number)
+  </script>
+</body>
+
+</html>
