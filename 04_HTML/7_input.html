@@ -129,9 +129,9 @@
 
   <!-- E-Mail: Submit 시 자동으로 E-Mail 형식 유효성 검사를 진행함 -->
   <form action="/signup">
-   <label for="email">이메일:</label>
-   <input type="email" id="email">
-   <button type="submit">가입</button>
+  <label for="email">이메일:</label>
+  <input type="email" id="email">
+  <button type="submit">가입</button>
   </form>
   <hr>
 
@@ -145,8 +145,9 @@
   <br>
 
   <!-- 범위 선택(기본값: 0~100) -->
-  <label for="volume">음량(0 ~ 10):</label>
-  <input type="range" id="volume" min="0" max="10" step="2">
+  <label for="volume">음량(0 ~ 50):</label>
+  <input type="range" id="volume" min="0" max="50" step="2">
+  <span id="volumeValue"></span><br>
 
   <!-- 비밀번호 -->
   <label for="pwd">비밀번호:</label>
@@ -190,7 +191,16 @@
     <button type="submit">로그인</button>
   </form>
 
+  <script>
+    const volumeEl = document.querySelector("#volume");
+    const volumeValueEl = document.querySelector("#volumeValue");
 
+    volumeValueEl.textContent = volumeEl.value;
+    
+    volumeEl.addEventListener("input", () => {
+      volumeValueEl.textContent = volumeEl.value;
+    });
+  </script>
 </body>
 
 </html>
