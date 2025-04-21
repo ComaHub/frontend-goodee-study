@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+
+  <!-- 구글 머티리얼 아이콘 -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
 
   <style>
     * {
@@ -12,6 +16,8 @@
 
     .form-input {
       width: 100%;
+      font-size: 16px;
+      padding: 5px;
       outline: none;
       border: none;
       cursor: pointer;
@@ -33,7 +39,7 @@
     }
 
     .btn-join {
-      margin-top: 40px;
+      margin-top: 10px;
       color: #09aa5c;
       background-color: #fff;
       border: 1px solid #09aa5c;
@@ -63,6 +69,11 @@
       position: relative;
     }
 
+    .login-container > .id-box.focused,
+    .login-container > .pw-box.focused {
+      border: 2px solid #09aa5c;
+    }
+
     .login-container > .id-box {
       border-radius: 8px 8px 0 0;
     }
@@ -82,12 +93,15 @@
       transition: 0.3s;
     }
 
-    .form-input:focus + .text-label {
+    .form-input:focus + .text-label,
+    .id-box.on .text-label,
+    .pw-box.on .text-label {
       font-size: 12px;
       bottom: 30px;
     }
 
     .login-container .icon-eye {
+      color: #c5ccd2;
       cursor: pointer;
 
       position: absolute;
@@ -96,9 +110,9 @@
     }
   </style>
 
-  <!-- 구글 머티리얼 아이콘 -->
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+  
 </head>
+
 <body>
   <div class="login-background">
     <div class="login-container">
@@ -116,5 +130,49 @@
       <button type="button" class="btn btn-join">회원가입</button>
     </div>
   </div>
+
+  <script>
+    const inputEls = document.querySelectorAll("input.form-input");
+    const eyeIconEl = document.querySelector(".icon-eye");
+    const pwInputEl = document.getElementById("pw");
+
+    inputEls.forEach((inputEl) => {
+      const parentEl = inputEl.parentElement;
+      console.log(parentEl);
+
+      inputEl.addEventListener("focus", () => {
+        parentEl.classList.add("focused");
+      });
+
+      // blur: focus 해제
+      inputEl.addEventListener("blur", () => {
+        parentEl.classList.remove("focused");
+      });
+
+      inputEl.addEventListener("change", () => {
+        if (inputEl.value) {
+          parentEl.classList.add("on");
+        } else {
+          parentEl.classList.remove("on");
+        }
+      });
+
+      inputEl.addEventListener("input", () => {
+        console.log("Input 이벤트 발생!");
+      });
+    });
+
+    eyeIconEl.addEventListener("click", () => {
+      if (pwInputEl.type === "password") {
+        pwInputEl.type = "text";
+        eyeIconEl.textContent = "visibility";
+      } else {
+        pwInputEl.type = "password";
+        eyeIconEl.textContent = "visibility_off"
+      }
+    })
+
+  </script>
 </body>
+
 </html>
