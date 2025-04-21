@@ -1,0 +1,122 @@
+/* Commom Style */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 16px;
+  color: #333;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* 영문에만 적용할 Font */
+.font-en {
+  font-family: "Open Sans", sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.animate-flash {
+  animation: flash 0.5s 2;
+}
+
+/* Header */
+header {
+  width: 100%;
+  border-bottom: 1px solid #c8c8c8;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(204, 204, 204, 0.8);
+  z-index: 10;
+
+  /* Fixed Header: fixed가 되면 width의 기준이 뷰포트로 바뀌면서 내용에 맞춰 축소됨 */
+  position: fixed;
+  top: 0;
+}
+
+header > .inner {
+  height: 60px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header .logo > img {
+  width: 40px;
+  /* 가로 너비만 지정하면 세로는 비율에 맞게 알아서 수정됨 */
+  vertical-align: middle;
+}
+
+header nav ul {
+  display: flex;
+}
+
+header nav ul li {
+  font-weight: 700;
+  padding: 10px 20px;
+}
+
+header nav ul li a {
+  position: relative;
+}
+
+header nav ul li a:hover {
+  color: #9b30ff;
+}
+
+header nav ul li a::after {
+  content: "";
+  /* 초기에는 밑줄이 없도록 0으로 설정 */
+  display: block;
+  width: 0;
+  height: 1px;
+  background-color: #9b30ff;
+
+  transition: width 0.5s;
+}
+
+header nav ul li a:hover::after {
+  width: 100%;
+}
+
+/* Visual */
+.visual {
+  width: 100%;
+  /* Header가 Fixed 되면 배치 흐름에서 벗어남 => 다음에 오는 요소는 Header 높이만큼 여백주기 */
+  margin-top: 60px;
+  color: #fff;
+  background-color: #000;
+}
+
+.visual > .inner {
+  height: calc(100vh - 60px);
+  font-size: 70px;
+
+  display: flex;
+  align-items: center;
+}
+
+.visual > .inner > h1 > span.gold {
+  color: #ffd700;
+}
+
+/* Animation 정의는 맨 마지막에 위치 */
+@keyframes flash {
+  0%, 50%, 100% {
+    opacity: 1;
+  }
+
+  25%, 75% {
+    opacity: 0;
+  } 
+}
