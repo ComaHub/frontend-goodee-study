@@ -1,0 +1,121 @@
+/* COMMON STYLE */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.english-font {
+  font-family: "Open Sans", sans-serif;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.line-up {
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* HEADER */
+header {
+  width: 100%;
+  height: 60px;
+  background: #000;
+  border-bottom: 3px solid #fff;
+  z-index: 10;
+
+  position: fixed;
+  top: 0;
+}
+
+header > div {
+  max-width: 1000px;
+  padding: 10px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header > div .home-icon {
+  color: #fff;
+  font-size: 40px;
+}
+
+header > div .home-icon:hover {
+  animation: home-spin 1s;
+}
+
+nav > ul {
+  display: flex;
+  column-gap: 10px;
+}
+
+nav > ul > li {
+  font-weight: bold;
+}
+
+nav > ul > li > a {
+  padding: 5px;
+  border: 1px solid transparent;
+}
+
+nav > ul > li > a:hover {
+  animation: button 0.5s;
+}
+
+/* MAIN */
+section {
+  width: 100%;
+  height: calc(100vh - 60px);
+  margin-top: 60px;
+  background-color: #000;
+}
+
+section > .article-box {
+  height: 100%;
+}
+
+section .side-icon {
+  color: #fff;
+  font-size: 400px;
+  cursor: default;
+
+  position: fixed;
+}
+
+section > div:first-child > .side-icon {
+  top: -140px;
+  left: -200px;
+}
+
+section > div:first-child + div > .side-icon {
+  top: -140px;
+  right: -200px;
+}
+
+/* ANIMATION */
+@keyframes home-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes button {
+  0%, 100% {
+    border: 1px solid transparent;
+  }
+
+  50% {
+    border: 1px solid #fff;
+  }
+}
