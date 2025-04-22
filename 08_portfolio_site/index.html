@@ -23,8 +23,17 @@
   <!-- Google Material Icon: Google 제공 오픈 소스 아이콘 / 글자처럼 취급 가능 -->
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
 
+  <!-- Swiper.css -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
   <!-- Main.css -->
   <link rel="stylesheet" href="css/main.css">
+
+  <!-- ScrollMagic.js -->
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/ScrollMagic.min.js" integrity="sha512-8E3KZoPoZCD+1dgfqhPbejQBnQfBXe8FuwL4z/c8sTrgeDMFEnoyTlH3obB4/fV+6Sg0a0XF+L/6xS4Xx1fUEg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <!-- Swiper.js -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
   <!-- Main.js -->
   <script defer src="js/main.js"></script>
@@ -44,16 +53,16 @@
       <nav class="font-en">
         <ul>
           <li>
-            <a href="#">ABOUT</a>
+            <a href="#about">ABOUT</a>
           </li>
           <li>
-            <a href="#">SKILL</a>
+            <a href="#skill">SKILL</a>
           </li>
           <li>
-            <a href="#">PROJECT</a>
+            <a href="#project">PROJECT</a>
           </li>
           <li>
-            <a href="#">CONTACT</a>
+            <a href="#contact">CONTACT</a>
           </li>
         </ul>
       </nav>
@@ -102,6 +111,145 @@
           <span class="animate-flash" style="animation-delay: 0.05s;">다</span>
           <span class="animate-flash" style="animation-delay: 0.13s;">.</span>
         </h1>
+      </div>
+    </section>
+
+    <section id="about" class="about">
+      <div class="inner">
+        <h2 class="title font-en">ABOUT</h2>
+        <div class="about__wrapper">
+          <div class="about__img">
+            <!-- 본인 프로필 이미지 넣기 -->
+            <img src="https://avatars.githubusercontent.com/u/206222462?v=4" alt="Profile">
+          </div>
+          <div class="about__text">
+            <!-- 본인 슬로건, 이름, 학력, 교육사항 등 ... -->
+            <strong class="slogan font-en">Simple is Best</strong>
+            <h3 class="font-en">Damon Lee (1970.01.01)</h3>
+            <div>
+              <h4 class="font-en">EDUCATION</h4>
+              <ul>
+                <li>13.02 ~ 23.02 00학교 00과 졸업</li>
+                <li>25.04 ~ 25.10 클라우드(AWS) 활용 자바/스프링 개발 부트캠프 수료</li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="about__btn font_en">
+          <a href="#contact">
+            <img src="images/icon/icon_contact.png" alt="Contact">CONTACT
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="skill" class="skill scroll-spy">
+      <div class="inner">
+        <h2 class="title font-en">SKILL</h2>
+
+        <ul class="skill__list">
+          <li>
+            <div class="font-en">
+              <p>Java</p>
+            </div>
+            <h3>Java<br>Programming</h3>
+            <ul>
+              <li>객체지향</li>
+              <li>File I/O</li>
+              <li>JDBC</li>
+              <li></li>
+            </ul>
+          </li>
+          <li>
+            <div class="font-en">
+              <p>Html</p>
+            </div>
+            <h3>HTML5</h3>
+            <ul>
+              <li>웹페이지 구조 설계</li>
+              <li>시맨틱 태그</li>
+            </ul>
+          </li>
+          <li>
+            <div class="font-en">
+              <p>Css</p>
+            </div>
+            <h3>CSS3</h3>
+            <ul>
+              <li>웹페이지 레이아웃 설계</li>
+              <li>웹페이지 디자인</li>
+              <li>반응형 제작</li>
+            </ul>
+          </li>
+          <li>
+            <div class="font-en">
+              <p>Js</p>
+            </div>
+            <h3>JavaScript</h3>
+            <ul>
+              <li>DOM 조작, 제어</li>
+              <li>이벤트 처리</li>
+              <li>비동기 통신</li>
+            </ul>
+          </li>
+          <li>
+            <div class="font-en">
+              <p>React</p>
+            </div>
+            <h3>React.JS</h3>
+            <ul>
+              <li>SPA 개발</li>
+              <li>전역 상태 관리</li>
+              <li>클라이언트 라우팅</li>
+              <li>CSR 방식 앱 개발</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="project" class="project font-en">
+      <div class="inner">
+        <h2 class="title">PROJECT</h2>
+
+        <div class="port">
+          <div class="port__img">
+            <div class="swiper">
+              <!-- Additional required wrapper -->
+              <div class="swiper-wrapper">
+                <!-- Slides -->
+                <div class="swiper-slide">
+                  <img src="images/work_1.jpg" alt="Image1">
+                </div>
+                <div class="swiper-slide">
+                  <img src="images/work_2.jpg" alt="Image2">
+                </div>
+              </div>
+              <!-- If we need pagination -->
+              <div class="swiper-pagination"></div>
+            
+              <!-- If we need navigation buttons -->
+              <div class="swiper-button-prev"></div>
+              <div class="swiper-button-next"></div>
+            </div>
+          </div>
+
+          <div class="port__text">
+            <h3>프로젝트명</h3>
+            <ul>
+              <li><span>주요 기능: </span>주요 기능 설명</li>
+              <li><span>적용 기술: </span>HTML, CSS, JS, React, Java, Spring Boot</li>
+              <li><span>GitHub: </span>깃허브 주소</li>
+              <li><span>URL: </span>배포 주소</li>
+            </ul>
+            <div class="btn-group">
+              <a href="javascript:void(0)" class="btn btn__purple">README</a>
+              <a href="javascript:void(0)" class="btn btn__brown">MODAL</a>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   </main>

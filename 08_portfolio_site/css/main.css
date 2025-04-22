@@ -3,6 +3,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: "Noto Sans KR", sans-serif;
   font-size: 16px;
@@ -24,6 +28,66 @@ a {
 .inner {
   max-width: 1200px;
   margin: 0 auto;
+}
+
+.title {
+  font-size: 50px;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.title::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 2px;
+  margin: 24px auto 0;
+  background-color: #333;
+}
+
+img {
+  /* Baseline 제거 */
+  display: block;
+}
+
+.btn {
+  width: 120px;
+  padding: 10px;
+  display: block;
+  border: 2px solid #333;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 500;
+  text-align: center;
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.btn:hover {
+  color: #fff;
+  background-color: #333;
+}
+
+.btn.btn__purple {
+  color: #9b30ff;
+  border-color: #9b30ff;
+}
+
+.btn.btn__purple:hover {
+  color: #fff;
+  background-color: #9b30ff;
+}
+
+.btn.btn__brown {
+  color: #592b18;
+  border-color: #592b18;
+}
+
+.btn.btn.btn__brown:hover {
+  color: #fff;
+  background-color: #592b18;
 }
 
 .animate-flash {
@@ -54,7 +118,6 @@ header > .inner {
 header .logo > img {
   width: 40px;
   /* 가로 너비만 지정하면 세로는 비율에 맞게 알아서 수정됨 */
-  vertical-align: middle;
 }
 
 header nav ul {
@@ -109,6 +172,192 @@ header nav ul li a:hover::after {
 .visual > .inner > h1 > span.gold {
   color: #ffd700;
 }
+
+/* ABOUT */
+.about {
+  padding: 150px 0;
+}
+
+.about > .inner {
+  position: relative;
+}
+
+.about .about__wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.about .about__wrapper .about__img {
+  width: 40%;
+}
+
+.about .about__wrapper .about__img img {
+  width: 100%;
+  border-radius: 50%;
+  box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.1);
+}
+
+.about .about__wrapper .about__text {
+  width: 40%;
+  padding: 30px;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.about .about__wrapper .about__text .slogan {
+  font-size: 35px;
+  font-weight: 700;
+}
+
+.about .about__wrapper .about__text h3 {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.about .about__wrapper .about__text h4 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.about .about__wrapper .about__text li {
+  line-height: 1.8;
+}
+
+.about .about__btn {
+  position: absolute;
+  bottom: -30px;
+  right: 30px;
+}
+
+.about .about__btn img {
+  display: inline;
+  vertical-align: middle;
+  width: 28px;
+  margin-right: 10px;
+}
+
+/* SKILL */
+.skill {
+  padding: 150px 0;
+  color: #fff;
+  background-color: #000;
+}
+
+.skill .title::after {
+  background-color: #fff;
+}
+
+.skill .skill__list {
+  display: flex;
+  justify-content: space-evenly;
+  text-align: center;
+}
+
+.skill .skill__list > li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0;
+
+  /* 방법 1: position */
+  /* position: relative;
+  top: 100px; */
+
+  /* 방법 2: transform */
+  transform: translateY(100px);
+  transition: 1s;
+}
+
+.skill .skill__list > li:nth-child(1) { transition-delay: 0.2s; }
+.skill .skill__list > li:nth-child(2) { transition-delay: 0.4s; }
+.skill .skill__list > li:nth-child(3) { transition-delay: 0.6s; }
+.skill .skill__list > li:nth-child(4) { transition-delay: 0.8s; }
+.skill .skill__list > li:nth-child(5) { transition-delay: 1s; }
+
+.skill.show .skill__list > li {
+  /* top: 0; */
+  transform: translateY(0px);
+  opacity: 1;
+}
+
+.skill .skill__list li div {
+  width: 50px;
+  height: 40px;
+  background-color: #9b30ff;
+  border-radius: 50%;
+
+  transform: rotate(-20deg);
+  transition: 0.5s;
+}
+
+.skill .skill__list li:hover div {
+  transform: rotate(0deg);
+}
+
+.skill .skill__list li div p {
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: -2px;
+}
+
+.skill .skill__list li h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 30px 0 20px;
+}
+
+/* PROJECT */
+.project {
+  padding: 150px 0;
+}
+
+.project .port {
+  display: flex;
+  margin: 20px 0;
+}
+
+.project .port .port__img,
+.project .port .port__text {
+  width: 50%;
+  height: 400px;
+}
+
+.project .port .port__img .swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.project .port .port__img .swiper img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.project .port .port__text {
+  padding: 30px;
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.project .port .port__text h3 {
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.project .port .port__text li {
+  line-height: 1.8;
+}
+
+.project .port .port__text li span {
+  font-weight: bold;
+}
+
+
 
 /* Animation 정의는 맨 마지막에 위치 */
 @keyframes flash {
