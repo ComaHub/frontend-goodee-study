@@ -41,20 +41,6 @@ function sideCogOff() {
   }, 3000);
 }
 
-function projectUnvail() {
-  projectItemEls.forEach((projectItem, index) => {
-    setTimeout(() => {
-      projectItem.classList.add("item-unvail");
-    }, (index * 500));
-  });
-}
-
-function projectVail() {
-  projectItemEls.forEach((projectItem) => {
-    projectItem.classList.remove("item-unvail");
-  })
-}
-
 function articleOn(nextArticle) {
   nextArticle.classList.add("article-on");
   nextArticle.classList.add("article-present");
@@ -62,12 +48,6 @@ function articleOn(nextArticle) {
   setTimeout(() => {
     nextArticle.classList.remove("article-on");
   }, 3000);
-
-  if (nextArticle.id === "article-project") {
-    setTimeout(() => {
-      projectUnvail();
-    }, 3500);
-  }
 }
 
 function articleOff(postArticle) {
@@ -77,10 +57,6 @@ function articleOff(postArticle) {
   setTimeout(() => {
     postArticle.classList.remove("article-off");
   }, 3000);
-
-  if (postArticle.id === "article-project") {
-    projectVail();
-  }
 }
 
 function thisArticle(articleEls) {
@@ -153,13 +129,6 @@ function changeWindow(postArticle, nextArticle) {
   sideCogOff();
   articleOff(postArticle);
 
-  let coverTime = null;
-  if (nextArticle.id === "article-project") {
-    coverTime = 9000;
-  } else {
-    coverTime = 6000;
-  }
-
   setTimeout(() => {
     sideCogOn();
     articleOn(nextArticle);
@@ -167,11 +136,12 @@ function changeWindow(postArticle, nextArticle) {
 
   setTimeout(() => {
     boxOn();
-  }, 6000);
-
-  setTimeout(() => {
     coverOff();
-  }, coverTime);
+  }, 6000);
+}
+
+function openingClose() {
+  document.getElementById("opening-box").classList.add("opening-closed");
 }
 
 articleBtns.forEach((articleBtn, index) => {
@@ -184,9 +154,7 @@ articleBtns.forEach((articleBtn, index) => {
   })
 });
 
-function openingClose() {
-  document.getElementById("opening-box").classList.add("opening-closed");
-}
+document.getElementById("copyright").textContent = new Date().getFullYear();
 
 function main() { //6000 7500 9000 11000 13500
   coverOn();
@@ -205,7 +173,7 @@ function main() { //6000 7500 9000 11000 13500
 
   setTimeout(() => {
     sideCogOn();
-    articleOn(articleEls[4]);
+    articleOn(articleEls[5]);
   }, 0);
   
   setTimeout(() => {
