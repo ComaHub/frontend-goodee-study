@@ -578,26 +578,51 @@ section > .article-box > .article-style > .box-style.box-show {
   max-width: 800px;
   height: 400px;
   margin: 20px;
+  padding: 20px;
   border: 3px solid #fff;
   border-radius: 10px;
   opacity: 0;
-  overflow: hidden auto;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 
   transform: translateY(50px);
   transition: 0.5s;
 }
 
 #box-career > #career-container > .career-item:nth-child(1) {
+  background-image: url("../images/bg_image_4.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
   transition-delay: 4s;
 }
 
 #box-career > #career-container > .career-item:nth-child(2) {
+  background-image: url("../images/bg_image_5.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
   transition-delay: 4.5s;
 }
 
 #article-career.article-present > #box-career > #career-container > .career-item {
   opacity: 1;
   transform: translateY(0px);
+}
+
+#box-career > #career-container > .career-item > h2 {
+  font-size: 50px;
+  margin-bottom: 15px;
+}
+
+#box-career > #career-container > .career-item > h3 {
+  font-size: 25px;
+}
+
+#box-career > #career-container > .career-item > p {
+  font-size: 14px;
+  margin: 20px 0;
 }
 
 #box-contact {

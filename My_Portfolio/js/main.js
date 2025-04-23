@@ -156,30 +156,30 @@ articleBtns.forEach((articleBtn, index) => {
 
 document.getElementById("copyright").textContent = new Date().getFullYear();
 
-function main() { //6000 7500 9000 11000 13500
+function main() {
   coverOn();
 
   setTimeout(() => {
     openingClose();
-  }, 0);
+  }, 6000);
 
   setTimeout(() => {
     headerOpening();
-  }, 0);
+  }, 7500);
   
   setTimeout(() => {
     sideOpening();
-  }, 0);
+  }, 9000);
 
   setTimeout(() => {
     sideCogOn();
-    articleOn(articleEls[5]);
-  }, 0);
+    articleOn(articleEls[4]);
+  }, 11000);
   
   setTimeout(() => {
     boxOn();
     coverOff();
-  }, 0);
+  }, 13500);
 }
 
 main();
