@@ -109,17 +109,15 @@ const toTopEl = document.querySelector("#to-top");
 // 페이지에 스크롤 이벤트 감지 추가
 // window: 브라우저 창 객체
 window.addEventListener("scroll", () => {
-  console.log(window.scrollY);
-  
-  // console.log(window.scrollY);
-  
   // 페이지 스크롤 위치가 500px을 넘으면 요소를 보이고
   // 500px을 넘지 않으면 요소를 숨기기
   if (window.scrollY > 500) {
-    toTopEl.style.opacity = "1";
-    toTopEl.style.transform = "translateX(0px)";
+    toTopEl.classList.add("active");
+
+    setTimeout(() => {
+      toTopEl.classList.remove("active");
+    }, 3000);
   } else {
-    toTopEl.style.opacity = "0";
-    toTopEl.style.transform = "translateX(100px)";
+    toTopEl.classList.remove("active");
   }
 });

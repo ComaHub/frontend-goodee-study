@@ -520,6 +520,11 @@ footer .copyright {
   transition: 0.5s;
 }
 
+#to-top.active {
+  opacity: 1;
+  transform: translateX(0px);
+}
+
 
 /* Animation 정의는 맨 마지막에 위치 */
 @keyframes flash {
