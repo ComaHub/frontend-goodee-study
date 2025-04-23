@@ -245,14 +245,83 @@
               <li><span>URL: </span>배포 주소</li>
             </ul>
             <div class="btn-group">
-              <a href="javascript:void(0)" class="btn btn__purple">README</a>
-              <a href="javascript:void(0)" class="btn btn__brown">MODAL</a>
+              <a href="javascript:void(0)" class="btn btn__purple btn-modal">README</a>
+              <a href="javascript:void(0)" class="btn btn__brown btn-modal-image" data-image-src="images/work_1.jpg">IMAGE</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="port">
+          <div class="port__img">
+            <div class="swiper">
+              <!-- Additional required wrapper -->
+              <div class="swiper-wrapper">
+                <!-- Slides -->
+                <div class="swiper-slide">
+                  <img src="images/work_3.jpg" alt="Image3">
+                </div>
+                <div class="swiper-slide">
+                  <img src="images/work_4.jpg" alt="Image4">
+                </div>
+              </div>
+              <!-- If we need pagination -->
+              <div class="swiper-pagination"></div>
+            
+              <!-- If we need navigation buttons -->
+              <div class="swiper-button-prev"></div>
+              <div class="swiper-button-next"></div>
+            </div>
+          </div>
+
+          <div class="port__text">
+            <h3>프로젝트명</h3>
+            <ul>
+              <li><span>주요 기능: </span>주요 기능 설명</li>
+              <li><span>적용 기술: </span>HTML, CSS, JS, React, Java, Spring Boot</li>
+              <li><span>GitHub: </span>깃허브 주소</li>
+              <li><span>URL: </span>배포 주소</li>
+            </ul>
+            <div class="btn-group">
+              <a href="javascript:void(0)" class="btn btn__purple btn-modal">README</a>
+              <a href="javascript:void(0)" class="btn btn__brown btn-modal-image" data-image-src="images/work_3.jpg">IMAGE</a>
             </div>
           </div>
         </div>
       </div>
     </section>
   </main>
+
+  <!-- MODAL -->
+  <!-- Modal 배경 -->
+  <div id="modal">
+    <!-- Modal 내용 -->
+    <div class="modal-content">
+      <div class="modal-header">
+        README
+        <span class="material-symbols-outlined btn-close">close</span>
+      </div>
+      <div class="modal-body">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore nesciunt consectetur atque? Praesentium hic numquam odit obcaecati culpa dolor quam corrupti nesciunt veritatis quibusdam ducimus, voluptatibus nam ad natus. Soluta?</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal background -->
+  <div id="imageModal">
+    <!-- Modal 내용 -->
+    <div class="modal-content">
+      <div class="modal-header">
+        IMAGE
+        <span class="material-symbols-outlined btn-close">close</span>
+      </div>
+      <div class="modal-body">
+        <!-- 방법 1) 1px 투명한 gif -->
+        <img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" alt="Image">
+        <!-- 방법 2) 스타일로 display: none + src는 나중에 지정 -->
+        <!-- 방법 3) Sample Loading Image -->
+      </div>
+    </div>
+  </div>
 </body>
 
 </html>

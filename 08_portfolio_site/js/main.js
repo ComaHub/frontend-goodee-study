@@ -33,3 +33,67 @@ const swiper = new Swiper('.project .swiper', {
     prevEl: '.project .swiper-button-prev',
   }
 });
+
+// Modal 창 띄우기
+const modalBtnList = document.querySelectorAll(".project .btn-modal");
+const modalEl = document.querySelector("#modal");
+const modalContentEl = document.querySelector("#modal .modal-content");
+const closeBtn = document.querySelector("#modal .btn-close");
+
+const imageModalBtnList = document.querySelectorAll(".project .btn-modal-image");
+const imageModalEl = document.querySelector("#imageModal");
+const imageModalContentEl = document.querySelector("#imageModal .modal-content");
+const imageCloseBtn = document.querySelector("#imageModal .btn-close");
+const imageSrcEl = document.querySelector("#imageModal img");
+
+// Quiz: modalBtn 누르면 모달창이 뜨고 closeBtn 누르면 닫히도록 스크립트 설정하기
+// style 속성: JS로 CSS 스타일 제어하는 속성
+
+modalContentEl.addEventListener("click", (event) => {
+  event.stopPropagation();
+})
+
+imageModalContentEl.addEventListener("click", (event) => {
+  event.stopPropagation();
+})
+
+modalBtnList.forEach((modalBtn) => {
+  modalBtn.addEventListener("click", () => {
+    modalEl.classList.add("modal-show");
+  });
+});
+
+closeBtn.addEventListener("click", () => {
+  modalEl.classList.remove("modal-show");
+});
+
+modalEl.addEventListener("click", () => {
+  modalEl.classList.remove("modal-show");
+});
+
+imageModalBtnList.forEach((imageModalBtn) => {
+  imageModalBtn.addEventListener("click", () => {
+    imageSrcEl.src = imageModalBtn.dataset.imageSrc;
+    imageModalEl.classList.add("modal-show");
+  });
+});
+
+imageCloseBtn.addEventListener("click", () => {
+  imageModalEl.classList.remove("modal-show");
+})
+
+imageModalEl.addEventListener("click", () => {
+  imageModalEl.classList.remove("modal-show");
+});
+
+window.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    modalEl.classList.remove("modal-show");
+    imageModalEl.classList.remove("modal-show");
+  }
+})
+
+// 추가로 해볼 만한 것
+// 1. 모달 바깥 영역 클릭 시 닫기
+// 2. ESC 키로 닫기
+// 3. Fade 애니메이션 넣기

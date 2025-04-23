@@ -430,6 +430,23 @@ section > .article-box > .article-style > .box-style.box-show {
   font-size: 40px;
 }
 
+#box-project > div:nth-child(1) {
+  height: 100px;
+  margin: 20px auto;
+}
+
+#box-project > div:nth-child(1) > h2 {
+  font-size: 70px;
+}
+
+#box-project > div:nth-child(1) > h2::after {
+  content: "";
+  display: block;
+  border: 1px solid #fff;
+
+  animation: flicker 6s infinite 3s;
+}
+
 /* ANIMATION */
 @keyframes opening-down-header {
   0% {
