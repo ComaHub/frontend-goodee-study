@@ -3,6 +3,7 @@ const covers = document.querySelectorAll(".cover");
 const articleBtns = document.querySelectorAll(".header-btn");
 const articleEls = document.querySelectorAll(".article-style");
 const boxEls = document.querySelectorAll(".box-style");
+const projectItemEls = document.querySelectorAll(".project-item")
 
 function sideCogOn() {
   console.log(sideCogs);
@@ -40,6 +41,20 @@ function sideCogOff() {
   }, 3000);
 }
 
+function projectUnvail() {
+  projectItemEls.forEach((projectItem, index) => {
+    setTimeout(() => {
+      projectItem.classList.add("item-unvail");
+    }, (index * 500));
+  });
+}
+
+function projectVail() {
+  projectItemEls.forEach((projectItem) => {
+    projectItem.classList.remove("item-unvail");
+  })
+}
+
 function articleOn(nextArticle) {
   nextArticle.classList.add("article-on");
   nextArticle.classList.add("article-present");
@@ -47,6 +62,12 @@ function articleOn(nextArticle) {
   setTimeout(() => {
     nextArticle.classList.remove("article-on");
   }, 3000);
+
+  if (nextArticle.id === "article-project") {
+    setTimeout(() => {
+      projectUnvail();
+    }, 3500);
+  }
 }
 
 function articleOff(postArticle) {
@@ -56,13 +77,15 @@ function articleOff(postArticle) {
   setTimeout(() => {
     postArticle.classList.remove("article-off");
   }, 3000);
+
+  if (postArticle.id === "article-project") {
+    projectVail();
+  }
 }
 
 function thisArticle(articleEls) {
   let article = null;
   articleEls.forEach((articleEl) => {
-    console.log(articleEl);
-    
     if (articleEl.classList.contains("article-present")) {
       article = articleEl;
     }
@@ -130,6 +153,13 @@ function changeWindow(postArticle, nextArticle) {
   sideCogOff();
   articleOff(postArticle);
 
+  let coverTime = null;
+  if (nextArticle.id === "article-project") {
+    coverTime = 9000;
+  } else {
+    coverTime = 6000;
+  }
+
   setTimeout(() => {
     sideCogOn();
     articleOn(nextArticle);
@@ -137,8 +167,11 @@ function changeWindow(postArticle, nextArticle) {
 
   setTimeout(() => {
     boxOn();
-    coverOff();
   }, 6000);
+
+  setTimeout(() => {
+    coverOff();
+  }, coverTime);
 }
 
 articleBtns.forEach((articleBtn, index) => {
@@ -172,7 +205,7 @@ function main() { //6000 7500 9000 11000 13500
 
   setTimeout(() => {
     sideCogOn();
-    articleOn(articleEls[3]);
+    articleOn(articleEls[4]);
   }, 0);
   
   setTimeout(() => {

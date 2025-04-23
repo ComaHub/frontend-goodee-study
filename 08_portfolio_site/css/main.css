@@ -428,6 +428,63 @@ header nav ul li a:hover::after {
   padding: 16px;
 }
 
+.contact {
+  padding: 200px 0;
+}
+
+.contact .contact__info li {
+  line-height: 2;
+  text-align: center;
+  opacity: 0;
+
+  transition: 1s;
+}
+
+/* Animation 추가 */
+.contact .contact__info li:nth-child(2n + 1) {
+  transform: translateX(150px);
+}
+
+.contact .contact__info li:nth-child(2n) {
+  transform: translateX(-150px);
+}
+
+.contact.show .contact__info li {
+  opacity: 1;
+  transform: translateX(0px);
+}
+
+.contact .contact__sns {
+  margin-top: 20px;
+}
+
+.contact .contact__sns ul {
+  display: flex;
+  justify-content: center;
+  column-gap: 10px;
+}
+
+/* Animation 추가 */
+.contact .contact__sns ul li {
+  opacity: 0;
+  transform: translateY(100px);
+
+  transition: 1s;
+}
+
+.contact .contact__sns ul li:nth-child(2) {
+  transition-delay: 0.1s;
+}
+
+.contact.show .contact__sns ul li {
+  opacity: 1;
+  transform: translateY(0px);
+}
+
+.contact .contact__sns ul li img {
+  width: 30px;
+}
+
 
 /* Animation 정의는 맨 마지막에 위치 */
 @keyframes flash {
