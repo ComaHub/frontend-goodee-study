@@ -430,6 +430,10 @@ section > .article-box > .article-style > .box-style.box-show {
   font-size: 40px;
 }
 
+#box-project {
+  flex-direction: column;
+}
+
 #box-project > div:nth-child(1) {
   height: 100px;
   margin: 20px auto;
@@ -445,6 +449,105 @@ section > .article-box > .article-style > .box-style.box-show {
   border: 1px solid #fff;
 
   animation: flicker 6s infinite 3s;
+}
+
+#box-project > #project-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
+
+#box-project > #project-container > .project-item {
+  width: 200px;
+  height: 300px;
+  margin: 20px;
+  border: 3px solid #fff;
+  border-radius: 10px;
+  overflow: hidden;
+
+  position: relative;
+
+  transition: 1s;
+}
+
+#box-project > #project-container > .project-item:nth-child(1) {
+  background: url("../images/bg_image_1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+#box-project > #project-container > .project-item:nth-child(2) {
+  background: url("../images/bg_image_2.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+#box-project > #project-container > .project-item:nth-child(3) {
+  background: url("../images/bg_image_3.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+#box-project > #project-container > .project-item > img {
+  width: 100%;
+  height: 40%;
+  object-fit: cover;
+  opacity: 0;
+}
+
+#box-project > #project-container > .project-item > div {
+  width: 100%;
+  height: 60%;
+  padding: 15px;
+  background-color: rgba(0, 0, 0, 0.8);
+  overflow: hidden auto;
+
+  position: absolute;
+  top: 100%;
+
+  display: flex;
+  flex-direction: column;
+}
+
+#box-project > #project-container > .project-item:hover {
+  scale: 1.1;
+}
+
+#box-project > #project-container > .project-item:hover > img {
+  opacity: 1;
+
+  transition: 0.5s 1s;
+}
+
+#box-project > #project-container > .project-item:hover > div {
+  top: 40%;
+
+  transition: 1s;
+}
+
+#box-project > #project-container > .project-item > div > h3 {
+  font-size: 25px;
+  margin-bottom: 10px;
+}
+
+#box-project > #project-container > .project-item > div > ul {
+  margin-bottom: 10px;
+}
+
+#box-project > #project-container > .project-item > div > ul > li {
+  font-size: 12px;
+}
+
+#box-project > #project-container > .project-item > div > ul > li > span {
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+#box-project > #project-container > .project-item > div > p {
+  font-size: 12px;
 }
 
 /* ANIMATION */
