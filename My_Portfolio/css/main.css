@@ -523,10 +523,6 @@ section > .article-box > .article-style > .box-style.box-show {
   flex-direction: column;
 }
 
-#box-project > #project-container > .project-item:hover {
-  scale: 1.1;
-}
-
 #box-project > #project-container > .project-item:hover > img {
   opacity: 1;
 

@@ -173,7 +173,7 @@ function main() {
 
   setTimeout(() => {
     sideCogOn();
-    articleOn(articleEls[4]);
+    articleOn(articleEls[0]);
   }, 11000);
   
   setTimeout(() => {
