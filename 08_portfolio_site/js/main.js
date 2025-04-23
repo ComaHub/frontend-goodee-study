@@ -97,3 +97,29 @@ window.addEventListener("keydown", (e) => {
 // 1. 모달 바깥 영역 클릭 시 닫기
 // 2. ESC 키로 닫기
 // 3. Fade 애니메이션 넣기
+
+
+// 현재 연도 표시
+// 날짜 정보를 가진 JS의 Date 객체 활용
+document.querySelector(".this-year").textContent = new Date().getFullYear();
+
+// 최상단 이동
+const toTopEl = document.querySelector("#to-top");
+
+// 페이지에 스크롤 이벤트 감지 추가
+// window: 브라우저 창 객체
+window.addEventListener("scroll", () => {
+  console.log(window.scrollY);
+  
+  // console.log(window.scrollY);
+  
+  // 페이지 스크롤 위치가 500px을 넘으면 요소를 보이고
+  // 500px을 넘지 않으면 요소를 숨기기
+  if (window.scrollY > 500) {
+    toTopEl.style.opacity = "1";
+    toTopEl.style.transform = "translateX(0px)";
+  } else {
+    toTopEl.style.opacity = "0";
+    toTopEl.style.transform = "translateX(100px)";
+  }
+});

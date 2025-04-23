@@ -485,6 +485,41 @@ header nav ul li a:hover::after {
   width: 30px;
 }
 
+/* FOOTER */
+footer {
+  color: #fff;
+  background-color: #000;
+}
+
+footer .copyright {
+  font-weight: 600;
+  text-align: center;
+  line-height: 200px;
+}
+
+/* Scroll to Top */
+#to-top {
+  width: 42px;
+  height: 42px;
+  background-color: #fff8e8;
+  border: 2px solid #333;
+  border-radius: 10px;
+  cursor: pointer;
+  opacity: 0;
+
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 10;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transform: translateX(100px);
+  transition: 0.5s;
+}
+
 
 /* Animation 정의는 맨 마지막에 위치 */
 @keyframes flash {
