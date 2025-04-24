@@ -112,12 +112,31 @@ window.addEventListener("scroll", () => {
   // 페이지 스크롤 위치가 500px을 넘으면 요소를 보이고
   // 500px을 넘지 않으면 요소를 숨기기
   if (window.scrollY > 500) {
-    toTopEl.classList.add("active");
-
-    setTimeout(() => {
-      toTopEl.classList.remove("active");
-    }, 3000);
+    toTopEl.style.opacity = "1";
+    toTopEl.style.transform = "translateX(0px)";
   } else {
-    toTopEl.classList.remove("active");
+    toTopEl.style.opacity = "0";
+    toTopEl.style.transform = "translateX(100px)";
   }
 });
+
+// 모바일용 메뉴
+const btnHamburger = document.querySelector(".btn-hamburger");
+const navEl = document.querySelector("header nav");
+const menuItems = document.querySelectorAll("header nav ul li a")
+
+btnHamburger.addEventListener("click", () => {
+  // if (navEl.classList.contains("active")) {
+  //   navEl.classList.remove("active");
+  // } else {
+  //   navEl.classList.add("active");
+  // }
+
+  navEl.classList.toggle("active");
+});
+
+menuItems.forEach((menuItem) => {
+  menuItem.addEventListener("click", () => {
+    navEl.classList.remove("active");
+  })
+})
