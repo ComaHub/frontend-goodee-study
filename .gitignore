@@ -1,4 +1,9 @@
-# .gitignore
-# 업로드가 필요없는 설정 파일, 빌드 산출물 등 지정
+##### IntelliJ #####
+.idea
+*.iml
+out
 
+
+##### Visual Studio Code #####
 .vscode
+
