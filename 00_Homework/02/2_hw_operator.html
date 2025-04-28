@@ -55,9 +55,33 @@
     <div><span>계산 결과 : </span><span id="calc-answer"></span></div>
   </div>
 
+  <div id="container-3">
+    <h1>문자 누적하기</h1>
+    <div>
+      <input type="text" id="text-value">
+      <button type="button" id="btn-text">누적</button>
+    </div>
+    <textarea id="text-area" rows="5" cols="28" style="margin-top: 10px;"></textarea>
+  </div>
+
   <script>
     function calculate(num1, num2, calc) {
-      
+      switch (calc) {
+        case "btn-plus":
+          return num1 + num2;
+
+        case "btn-minus":
+          return num1 - num2;
+
+        case "btn-multi":
+          return num1 * num2;
+
+        case "btn-divide":
+          return num1 / num2;
+
+        case "btn-remain":
+          return num1 % num2;
+      }
     }
 
     document.querySelector("#btn-add").addEventListener("click", () => {
@@ -82,9 +106,27 @@
     });
 
     document.querySelectorAll("#container-2 button").forEach((button) => {
+      button.addEventListener("click", () => {
+        const num1 = Number(document.querySelector("#first-value").value);
+        const num2 = Number(document.querySelector("#second-value").value);
+        const calc = button.id;
 
+        let result = 0;
+        if (num1 !== "" && num2 !== "") {
+          result = calculate(num1, num2, calc);
+        }
+
+        document.querySelector("#calc-answer").textContent = result;
+      })
     });
     
+    document.querySelector("#btn-text").addEventListener("click", () => {
+      const inputText = document.querySelector("#text-value").value;
+      const currentText = document.querySelector("#text-area").textContent;
+
+      document.querySelector("#text-area").textContent = currentText + inputText;
+      document.querySelector("#text-value").value = "";
+    });
   </script>
 </body>
 
