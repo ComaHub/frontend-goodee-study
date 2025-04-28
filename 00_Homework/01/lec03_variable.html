@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    .container01 > img,
+    .container02 > img {
+      display: block;
+      margin-top: 20px;
+    }
+
+    .container01 > button {
+      width: 30px;
+      height: 30px;
+      font-size: 25px;
+      line-height: 25px;
+    }
+
+    .container02 > div > button {
+      margin-left: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container01">
+    <h1>자라나라 스폰지밥</h1>
+    <button type="button" id="btn-img">+</button>
+    <img src="./images/oiia.png" alt="Image1" width="100px" height="100px">
+  </div>
+
+  <div class="container02">
+    <h1>이미지 크기 조정</h1>
+    <div>
+      <label for="img-width">가로 : </label>
+      <input type="number" id="img-width">
+    </div>
+    <div>
+      <label for="img-height">세로 : </label>
+      <input type="number" id="img-height">
+      <button type="button" id="btn-img-size">변경</button>
+    </div>
+    <img src="./images/profile.jpg" alt="Image2" width="200px" height="200px">
+  </div>
+
+  <script>
+    function makeImgBig() {
+      const imgEl = document.querySelector(".container01 img");
+      const imgWidth = imgEl.width;
+      const imgHeight = imgEl.height;
+      console.log(imgWidth);
+      
+
+      imgEl.width = imgWidth + 100;
+      imgEl.height = imgHeight + 100;
+    }
+
+    function setImgSize(newWidth, newHeight) {
+      const profileEl = document.querySelector(".container02 img");
+      profileEl.width = newWidth;
+      profileEl.height = newHeight;
+    }
+
+    document.querySelector("#btn-img").addEventListener("click", () => {
+      makeImgBig();
+    });
+
+    document.querySelector("#btn-img-size").addEventListener("click", () => {
+      const newWidth = document.querySelector("#img-width").value;
+      const newHeight = document.querySelector("#img-height").value;
+      console.log(newWidth);
+      
+
+      if (newWidth !== "" && newHeight !== "") {
+        setImgSize(newWidth, newHeight);
+      }
+    });
+  </script>
+</body>
+
+</html>
