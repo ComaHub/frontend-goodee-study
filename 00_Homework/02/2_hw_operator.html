@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    #ball-container {
+      margin-top: 20px;
+    }
+
+    #ball-container > .ball-item {
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+      background-color: #00ffff;
+      border-radius: 50%;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="container-1">
+    <h1>홀수? 짝수?</h1>
+    <div>
+      <button type="button" id="btn-add">구슬 추가</button>
+      <button type="button" id="btn-is-odd">홀짝</button>
+      <button type="button" id="btn-reset">초기화</button>
+    </div>
+    <div id="ball-container"></div>
+  </div>
+
+  <div id="container-2">
+    <h1>계산기</h1>
+    <div>
+      <label for="first-value">첫번째 값 : </label>
+      <input type="number" id="first-value">
+    </div>
+    <div>
+      <label for="second-value">두번째 값 : </label>
+      <input type="number" id="second-value">
+    </div>
+    <button type="button" id="btn-plus">+</button>
+    <button type="button" id="btn-minus">-</button>
+    <button type="button" id="btn-multi">X</button>
+    <button type="button" id="btn-divide">/</button>
+    <button type="button" id="btn-remain">%</button>
+    <hr>
+    <div><span>계산 결과 : </span><span id="calc-answer"></span></div>
+  </div>
+
+  <script>
+    function calculate(num1, num2, calc) {
+      
+    }
+
+    document.querySelector("#btn-add").addEventListener("click", () => {
+      const ball = '<div class="ball-item"></div>';
+      const text = document.querySelector("#ball-container").innerHTML;
+      document.querySelector("#ball-container").innerHTML = text + ball;
+    });
+
+    document.querySelector("#btn-is-odd").addEventListener("click", () => {
+      const myBalls = document.querySelectorAll(".ball-item");
+      let count = 0;
+
+      myBalls.forEach((myBall) => {
+        count++;
+      })
+
+      alert(count % 2 == 0 ? "짝수입니다." : "홀수입니다.");
+    });
+
+    document.querySelector("#btn-reset").addEventListener("click", () => {
+      document.querySelector("#ball-container").innerHTML = "";
+    });
+
+    document.querySelectorAll("#container-2 button").forEach((button) => {
+
+    });
+    
+  </script>
+</body>
+
+</html>
