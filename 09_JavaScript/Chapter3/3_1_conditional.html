@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 조건문
+    // 특정 조건에 대한 만족 여부(true / false)에 따라 code 수행 여부가 결정됨
+    // if, switch
+
+    // ex. 유효성 검사(입력한 data가 올바른 값이면 넘어가고 아니면 error 출력)
+    // ex. log-in 시 사용자 정보가 맞으면 true, 아니면 false
+
+    // 1. if, else, else if
+
+    // 1) if => 조건식을 만족하면 code block을 실행
+    // if (condition) {
+         // code block  
+    // }
+
+    let age = 17;
+    let isAdult = false;
+    if (age > 19) {
+      isAdult = true;
+    }
+    document.write(isAdult + "<br>");
+
+    // 2) if-else => 조건식을 만족하면 if, 만족하지 않으면 else 실행
+    // 조건식의 결과에 따라 둘 중 하나를 실행할 때 사용
+    age = 20;
+    if (age > 19) {
+      isAdult = true;
+    } else {
+      isAdult = false;
+    }
+    document.write(isAdult + "<br>");
+
+    // window.confirm("message"): 확인 상자 / 사용자가 무언가 확인하거나 수락하기를 원할 때
+    // 확인을 누르면 true, 취소를 누르면 false 반환
+    // const result = confirm("정말 회원 탈퇴를 하시겠습니까?");
+    // if (result) {
+    //   document.write("탈퇴 처리되었습니다."+ "<br>");
+    // } else {
+    //   document.write("탈퇴가 취소되었습니다." + "<br>");
+    // }
+
+    // Quiz
+    // const inputNum = Number(prompt("숫자를 입력하세요: ", ""));
+    // if (inputNum % 2 === 0) {
+    //   document.write("짝수입니다." + "<br>");
+    // } else {
+    //   document.write("홀수입니다." + "<br>");
+    // }
+
+    // 3) if-else if
+    // 여러 if 중 조건식을 만족하는 것을 찾아 실행, 없으면 else
+    // 조건식의 결과에 따라 여러 식 중 하나를 실행시킬 때 사용
+    const hour = 22;
+    if (hour < 10) {
+      document.write("Good Morning" + "<br>");
+    } else if (hour < 18) {
+      document.write("Good arternoon"+ "<br>")
+    } else if (hour < 21) {
+      document.write("Good arternoon"+ "<br>")
+    } else {
+      document.write("Good night"+ "<br>")
+    }
+
+    // const month = Number(prompt("지금 몇 월인가요: ", ""));
+    // if (month >= 3 && month <= 5) {
+    //   alert("햇살 가득한 봄입니다.");
+    // } else if (month >= 6 && month <= 8) {
+    //   alert("여행 가기 좋은 여름입니다.");
+    // } else if (month >= 9 && month <= 11) {
+    //   alert("독서의 계절 가을입니다.");
+    // } else if (month === 12 || (month >= 1 && month <= 2)) {
+    //   alert("눈이 오는 겨울입니다.");
+    // } else {
+    //   alert("잘못 입력하였습니다.");
+    // }
+
+    // Quiz: 명확히 하려면 else if를 사용해 12, 1~2를 체크하는 조건식 넣기
+
+    // 조건식에 논리형 데이터가 아닌 다른 타입의 데이터가 입력됐을 때
+    // falsy: false, 0, "", NaN, null, undefined
+    if (5) {
+      document.write("true로 취급<br>");
+    }
+
+    // (응용) 정상적인 값이 들어왔는지 판단
+    // const userName = prompt("방문자의 이름은: ", "");
+    // if (userName) { // 조건식에 값 자체를 입력해 truthy인지 falsy인지 확인
+    //   alert(`${userName}님 반갑습니다!`);
+    // }
+
+    // 4) 중첩 if
+    // if (조건식1) {
+    //   if (조건식2) {
+    //     code block
+    //   }
+    // }
+
+    // const dbId = "Gildong";
+    // const dbPw = "q1w2e3r4";
+    // const userId = prompt("ID를 입력해주세요: ");
+
+    // // ID가 일치하지 않으면 굳이 비밀번호를 확인할 필요가 없음
+    // if (dbId === userId) {
+    //   // 아이디가 일치하면 비밀번호 확인
+    //   const userPw = prompt("비밀번호를 입력해주세요: ");
+
+    //   if (dbPw === userPw) {
+    //     alert(`${userId}님 환영합니다!`);
+    //   } else {
+    //     alert("비밀번호가 일치하지 않습니다.");
+    //   }
+    // } else {
+    //   alert("ID가 일치하지 않습니다.");
+    // }
+
+    // 2. switch
+    // 일치하는 경우의 값이 있을 경우 해당 case를 선택해 실행
+    // 없을 경우 default 실행 => 생략 가능
+    // 이 때 case 절의 상수 값은 숫자 또는 문자 가능, 비교 구문 안 됨
+
+    // 1) switch
+    // const 변수 = value;
+    // switch (변수) {
+    //   case value1:
+    //     실행코드1
+    //     break;
+    //   case value2:
+    //     실행코드2
+    //     break;
+    //   case value3:
+    //     실행코드3
+    //     break;
+    //   default:
+    //     실행코드4
+    //     break;
+    // }
+
+    // const site = prompt("네이버, 다음, 구글 중 즐겨 사용하는 포털은?: ");
+    // let url;
+
+    // switch (site) {
+    //   case "네이버":
+    //     url = "https://www.naver.com"
+    //     break;
+
+    //   case "다음":
+    //     url = "https://www.daum.net"
+    //     break;
+
+    //   case "구글":
+    //     url = "https://www.google.com"
+    //     break;
+
+    //   default:
+    //     alert("잘못 입력하셨습니다.");
+    //     break;
+    // }
+
+    // if (url) {
+    //   location.href = url;
+    // }
+
+    // 2) break 문이 없을 때
+    const time = 12;
+    document.write(`현재 시간: ${time}시<br>`);
+
+    switch (time) {
+      case 8:
+        document.write(`출근합니다.<br>`);
+      case 9:
+        document.write(`회의를 합니다.<br>`);
+      case 10:
+        document.write(`업무를 봅니다.<br>`);
+      default:
+        document.write(`외근을 갑니다.<br>`);
+        break;
+    }
+
+    // 3) 여러 개의 case 묶기 => case의 개수에 제한은 없음
+    const grade = "A";
+    document.write(`회원 등급: ${grade}<br>`);
+
+    switch (grade) {
+      case "A":
+      case "a":
+        // "A"이거나 "a" 둘 중 하나이면 실행
+        document.write("우수 회원입니다.<br>");
+        break;
+
+      case "B":
+      case "b":
+        document.write("일반 회원입니다.<br>");
+        break;
+    
+      default:
+        document.write("손님입니다.<br>");
+        break;
+    }
+
+  </script>
+</body>
+
+</html>
