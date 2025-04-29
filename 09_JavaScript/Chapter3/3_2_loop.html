@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 반복문
+    // 조건식을 만족하는 동안 실행 코드를 반복하여 수행
+    // 예) 데이터를 반복해서 처리해야 될 때, 100개의 데이터를 100번 쓰는것보다 코드 한 줄로 100번 반복이 효율적
+    // 주로 배열과 함께 많이 쓰임
+    // for문, while문
+
+    // 1. for
+    // 1) 기본 문법
+    // for (1. 초기식; 2. 5. 조건식; 4. 7... 증감식) {
+    //   3. 6. 실행 코드
+    // }
+    // 증감식은 모든 식이 올 수 있음(i++, i--, i = i * 10 ...)
+
+    // 반복 1 ~ 10까지 10회 출력
+    for (let i = 1; i <= 10; i++) {
+      document.write(`제${i}의아해가무섭다고그리오.<br>`);
+    }
+
+    let sum = 0; // 초기화!
+    for (let i = 1; i <= 100; i++) {
+      sum += i;
+    }
+    document.write(`1 ~ 100까지의 합: ${sum}<br>`);
+
+    // 2) break => switch 또는 반복문 빠져나갈 때 사용
+    // 1 ~ 10까지 반복 중 i의 값이 6일 때 빠져나가기
+    for (let i = 1; i <= 10; i++) {
+      if (i === 6) break;
+
+      document.write(`현재 배터리: ${i}0%<br>`);
+    }
+
+    // 3) continue => 반복문에서만 사용 / 이후의 코드를 무시하고 다음 반복으로 진행
+    // 1 ~ 10까지 홀수만 출력 (짝수일 경우 건너뛰기)
+    for (let i = 1; i <= 10; i++) {
+      if (i % 2 === 0) continue;
+
+      document.write(`${i}은(는) 홀수야!<br>`);
+    }
+
+    // 4) 중첩 for문
+    // for문 안에 for문 사용
+    // 중첩할수록 퍼포먼스가 떨어짐(2중 for문까지는 일반적, 3중 for문부터는 느려질 수 있음)
+    // for (초기화식; 조건식; 증감식) { // 바깥 for문
+    //   for (초기화식; 조건식; 증감식) { // 안쪽 for문
+    //     실행코드
+    //   }
+    // }
+
+    // 3행 2열 구조의 데이터 출력
+    for (let i = 1; i <= 3; i++) { // 행 반복
+      for (let j = 1; j <= 2; j++) { // 열 반복
+        document.write(`${i}행 ${j}열 `);
+      }
+
+      document.write("<br>");
+    }
+
+    // Quiz : 구구단 출력하기
+    for (let i = 2; i <= 9; i++) {
+      document.write(`**** ${i}단 ****<br>`);
+
+      for (let j = 1; j <= 9; j++) {
+        document.write(`${i} x ${j} = ${i * j}<br>`);
+      }
+
+      document.write("<br>");
+    }
+
+    // 2. while => 반복 횟수는 모르나 특정 조건을 만족하는 동안 계속 반복할 때
+    // 1) 기본 문법
+    // while (조건식) {
+    //   실행 코드
+    // }
+
+    // 안녕하세요1 ~ 10까지 10회 출력
+    let count1 = 1;
+    while (count1 <= 10) {
+      document.write(`안녕하세요${count1++}<br>`);
+    }
+
+    // Quiz
+    // 1 ~ 30까지 숫자 중 2의 배수이면서 3의 배수인 숫자만 출력
+    let count2 = 1;
+    while (count2 <= 30) {
+      if (count2 % 2 === 0 && count2 % 3 === 0) {
+        document.write(`${count2}는 2의 배수이면서 3의 배수입니다.<br>`);
+      }
+
+      count2++;
+    }
+
+    // Quiz
+    // 20 ~ 10까지의 숫자 중 짝수일 경우 파란색, 홀수일 경우 빨간색으로 출력
+    let count3 = 20;
+    while (count3 >= 10) {
+      if (count3 % 2 === 0) {
+        document.write(`<p style="color: blue;">${count3--}</p>`);
+      } else {
+        document.write(`<p style="color: red;">${count3--}</p>`);
+      }
+    }
+
+    // 반복 횟수를 모를 때 사용하기
+    // 지폐 투입하면 500원 동전으로 교환하는 자판기 => 몇개 내보낼지 계산하기
+    let inputMoney = 7000;
+    const coinUnit = 500;
+    let coinCount = 0;
+
+    // while문을 사용해 inputMoney가 0원이 될 때까지 500원씩 차감
+    while (inputMoney > 0) {
+      inputMoney -= coinUnit;
+      coinCount++;
+    }
+
+    document.write(coinCount + "개<br>");
+
+    // do while (잘 안씀): while과 달리 실행 후 조건식을 판단함
+    // do {
+    //   실행코드
+    // } while (조건식);
+
+    let count4 = 5;
+    do {
+      document.write("Hello!<br>");
+      count4++;
+    } while (count4 < 3);
+  </script>
+</body>
+</html>
