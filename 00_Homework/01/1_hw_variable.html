@@ -56,9 +56,7 @@
       const imgEl = document.querySelector(".container01 img");
       const imgWidth = imgEl.width;
       const imgHeight = imgEl.height;
-      console.log(imgWidth);
       
-
       imgEl.width = imgWidth + 100;
       imgEl.height = imgHeight + 100;
     }
@@ -69,16 +67,12 @@
       profileEl.height = newHeight;
     }
 
-    document.querySelector("#btn-img").addEventListener("click", () => {
-      makeImgBig();
-    });
+    document.querySelector("#btn-img").addEventListener("click", makeImgBig);
 
     document.querySelector("#btn-img-size").addEventListener("click", () => {
       const newWidth = document.querySelector("#img-width").value;
       const newHeight = document.querySelector("#img-height").value;
-      console.log(newWidth);
       
-
       if (newWidth !== "" && newHeight !== "") {
         setImgSize(newWidth, newHeight);
       }
