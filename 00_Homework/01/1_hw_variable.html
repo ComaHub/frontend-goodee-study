@@ -57,14 +57,14 @@
       const imgWidth = imgEl.width;
       const imgHeight = imgEl.height;
       
-      imgEl.width = imgWidth + 100;
-      imgEl.height = imgHeight + 100;
+      imgEl.style.width = `${imgWidth + 100}px`;
+      imgEl.style.height = `${imgHeight + 100}px`;
     }
 
     function setImgSize(newWidth, newHeight) {
       const profileEl = document.querySelector(".container02 img");
-      profileEl.width = newWidth;
-      profileEl.height = newHeight;
+      profileEl.style.width = `${newWidth}px`;
+      profileEl.style.height = `${newHeight}px`;
     }
 
     document.querySelector("#btn-img").addEventListener("click", makeImgBig);
