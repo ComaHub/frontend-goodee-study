@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- * -->
+  <button type="button" onclick="changeColor()">배경색 바꾸기</button>
+
+  <hr>
+  <!-- ** -->
+  <input type="text" id="id" placeholder="아이디">
+  <input type="text" id="pw" placeholder="비밀번호">
+  <button type="button" class="btn-login">로그인</button>
+
+  <hr>
+  <!-- *** -->
+  <div>
+    <p>
+      <button type="button" onclick="gallery(this)">이전</button>
+      <button type="button" onclick="gallery(this)">다음</button>
+    </p>
+    <p>
+      <img src="images/pic_1.jpg" alt="Photo" width="200" class="photos">
+    </p>
+  </div>
+
+  <script>
+    // 함수
+    // 여러 실행 코드들의 묶음(그룹화)
+    // 자주 사용하는 코드들(기능)을 저장했다가 필요할 때 호출해서 사용
+    // function 키워드를 사용하여 정의 => ES6차에서는 화살표 함수를 사용
+
+    // 1) 함수 선언문: 기명 함수로 정의
+    // function name(params) {
+    //   codes;
+    //   (return value);
+    // }
+    
+    // 2) 함수 표현식: 익명 함수를 변수에 할당
+    // const f = function (params) {
+    //   codes;
+    //   (return value);
+    // };
+
+    // 위와 같이 정의된 함수는 즉시 실행되지 않음
+    // 메모리에 할당되어 있다가 함수가 호출되면 실행
+    // 1) name();
+    // 2) f();
+
+    function greeting() {
+      document.write("Hello<br>")
+    }
+
+    greeting();
+
+    // (참고) 함수 선언문과 함수 표현식의 차이점
+    // 함수 선언문은 호이스팅(끌어 올리기)이 일어난다. 
+    // 해당 스코프(유효범위)의 최상단으로 끌어올려진 것과 같은 현상(실제로 끌어올리는 것은 아님)
+    // 변수나 함수 선언이 코드 실행 보다 먼저 메모리에 할당(저장)되는 과정
+
+    let count = 0;
+
+    myFunc();
+
+    function myFunc() { // 함수 hoisting
+      count++;
+      document.write(`Hello ${count}<br>`);
+    }
+
+    myFunc();
+
+    // theFunc(); => 에러 발생 (함수 정의 전 사용)
+
+    const theFunc = function () {
+      count++;
+      document.write(`Hello ${count}<br>`);
+    };
+
+    theFunc();
+
+    // 버튼 클릭할 때마다 배경색이 바뀌도록 함수 만들기
+    // (body 태그 참조)
+    const colors = ["yellow", "aqua", "purple", "white"];
+    const bodyEl = document.querySelector("body");
+
+    let index = 0;
+    function changeColor() {
+      if (index >= colors.length) index = 0;
+      bodyEl.style.backgroundColor = `${colors[index++]}`;
+    }
+
+    // 3) 매개변수가 있는 함수
+    // function myFunction(param1, param2, ...) {
+    //   codes;
+    //   (return values);
+    // }
+    // myFunction(arg1, arg2, ...);
+
+    function introduce(name, area = "쥬신") { // 외부에서 받을 데이터가 있으면 매개변수 선언
+      document.write(`안녕하세요. ${name}입니다.<br>사는 곳은 ${area}입니다.<br>`);
+    }
+
+    introduce("홍길동", "한양"); // 인수를 함수에 넘겨줌
+    introduce("홍길동"); // area = undefined
+    introduce("홍길동", "한양", "무의미한 데이터"); // name, area만 반영
+
+    // 로그인 함수 만들기 실습
+    const dbUser = {
+      id: "Gildong",
+      password: "2580",
+      name: "홍길동"
+    };
+
+    const inputId = document.querySelector("#id");
+    const inputPw = document.querySelector("#pw");
+    const btnLogin = document.querySelector(".btn-login");
+
+    // Quiz: login 함수 선언하고 호출하기
+    // 잘못된 id 입력: alert('존재하지 않는 아이디입니다.');
+    // 잘못된 pw 입력: alert('잘못된 비밀번호입니다.');
+    // 로그인 성공 시: alert('~~~님 방문을 환영합니다!');
+
+    function login(id, password) {
+      if (id === "" || password === "") return;
+
+      // 풀이 1
+      if (id === dbUser.id) {
+        if (password === dbUser.password) {
+          alert(`${dbUser.name}님 방문을 환영합니다!`);
+        } else {
+          alert('잘못된 비밀번호입니다.');
+          cleanInput();
+        }
+      } else {
+        alert('존재하지 않는 아이디입니다.');
+        cleanInput();
+      }
+
+      // 풀이 2 (권장!)
+      if (id !== dbUser.id) {
+        alert('존재하지 않는 아이디입니다.');
+        cleanInput();
+      } else if (password !== dbUser.password) {
+        alert('잘못된 비밀번호입니다.');
+        cleanInput();
+      } else {
+        alert(`${dbUser.name}님 방문을 환영합니다!`);
+      }
+    }
+
+    function cleanInput() {
+      inputId.value = "";
+      inputPw.value = "";
+    }
+
+    btnLogin.addEventListener("click", () => {
+      login(inputId.value, inputPw.value);
+    });
+
+
+    // 4) 함수에서 return문의 역할
+    // 1. 결과값 반환 2. 함수 강제종료
+
+    // function name(params) {
+    //   code1;
+    //   (return value);
+
+    //   code2; (실행되지 않음)
+    // }
+
+    function sum(num1, num2) {
+      return num1 + num2;
+    }
+
+    document.write(`두 수의 합은 ${sum(15, 17)}입니다.`);
+    document.write("<br>");
+
+    // 여러 과목의 점수를 입력받아 평균 점수 구하기
+    const subjects = ["국어", "영어", "수학"];
+
+    function testAvg(arrData) {
+      let sum = 0;
+      for (const data of arrData) {
+        sum += Number(prompt(`${data} 점수는?`, "0"));
+      }
+
+      return sum / arrData.length;
+    }
+
+    // document.write(`평균 점수는 ${testAvg(subjects)}입니다.`);
+
+    // Quiz: 이전/다음 버튼으로 이미지를 넘기는 gallery() 함수 만들기
+    // 위 *** 참조
+    // 힌트: img 태그를 가져와 src 속성을 이용하거나 HTML 속성을 추가하는 setAttribute() 메소드 활용하기
+    const imgEl = document.querySelector(".photos");
+    let imgNumber = 1;
+
+    function gallery(button) {
+      if (button.textContent === "이전") {
+        imgNumber--;
+        if (imgNumber < 1) imgNumber = 8;
+      } else if (button.textContent === "다음") {
+        imgNumber++;
+        if (imgNumber > 8) imgNumber = 1;
+      }
+
+      imgEl.setAttribute("src", `images/pic_${imgNumber}.jpg`);
+    }
+
+
+  </script>
+</body>
+</html>
