@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    #charImg {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      border: 2px solid yellowgreen;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 1번 -->
+  <h1>날씨 확인</h1>
+  계절
+  <input type="radio" name="season" id="spring" value="봄">
+  <label for="spring">봄</label>
+  <input type="radio" name="season" id="summer" value="여름">
+  <label for="summer">여름</label>
+  <input type="radio" name="season" id="fall" value="가을">
+  <label for="fall">가을</label>
+  <input type="radio" name="season" id="winter" value="겨울">
+  <label for="winter">겨울</label>
+  <div>
+    <label for="temp">기온</label>
+    <input type="number" id="temp">
+  </div>
+  <button type="button" onclick="checkSeason()">확인</button>
+
+  <script>
+    function checkSeason() {
+      const inputSeasonEls = document.querySelectorAll("input[name='season']");
+      const inputTempValue = document.querySelector("#temp").value;
+      let season;
+      let weatherCaution = "맑음";
+
+      inputSeasonEls.forEach((inputSeasonEl) => {
+        if (inputSeasonEl.checked) {
+          season = inputSeasonEl.value;
+        }
+      });
+
+      if (season === undefined) {
+        alert("계절을 선택해주세요.");
+        return;
+      }
+      
+      if (inputTempValue == "") {
+        alert("기온을 입력해주세요.");
+        return;
+      }
+
+      if (inputTempValue >= 35) {
+        weatherCaution = "폭염 경보";
+      } else if (inputTempValue >= 32) {
+        weatherCaution = "폭염 주의보";
+      }
+
+      if (inputTempValue <= -15) {
+        weatherCaution = "한파 경보";
+      } else if (inputTempValue <= -12) {
+        weatherCaution= "한파 주의보";
+      }
+
+      alert(`현재 계절은 ${season}입니다.\n날씨는 ${weatherCaution}입니다.`);
+    }
+    
+  </script>
+
+  <!-- 2번 -->
+  <h1>스폰지밥, 뚱이, 징징이</h1>
+  <select id="charSelect" onchange="changeCharacter()">
+    <option value="1" selected>스폰지밥</option>
+    <option value="2">뚱이</option>
+    <option value="3">징징이</option>
+  </select>
+  <img src="images/sponge.png" alt="캐릭터" id="charImg">
+
+  <script>
+    function changeCharacter() {
+      const charEl = document.querySelector("#charSelect");
+      const imgEl = document.querySelector("#charImg");
+      console.log(charEl);
+      
+
+      switch (charEl.value) {
+        case "1" :
+          imgEl.src = "images/sponge.png";
+          break;
+          
+        case "2" :
+          imgEl.src = "images/dung.png";
+          break;
+
+        case "3" :
+          imgEl.src = "images/human.png";
+          break;
+      }
+    }
+    
+  </script>
+</body>
+
+</html>
