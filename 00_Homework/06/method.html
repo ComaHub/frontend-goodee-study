@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>내 맘대로 랜덤</h1>
+  <div>
+    <label for="input-start">시작</label>
+    <input type="text" id="input-start">
+  </div>
+  <div>
+    <label for="input-end">종료</label>
+    <input type="text" id="input-end">
+  </div>
+  <button type="button" id="btn-random">실행</button>
+  
+  <hr>
+
+  <button type="button" id="btn-color">바꾸기</button>
+
+  <script>
+    const bodyEl = document.querySelector("body");
+    const inputStartEl = document.querySelector("#input-start");
+    const inputEndEl = document.querySelector("#input-end");
+
+    function getRandomNumber(params) {
+      return Number(Math.floor(Math.random() * (Number(inputEndEl.value) - Number(inputStartEl.value) + 1) + Number(inputStartEl.value)))
+    }
+
+    function getColorNumber() {
+      return Number(Math.floor(Math.random() * 256));
+    }
+
+    function changeBackgroundColor(red, green, blue) {
+      bodyEl.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+    }
+
+    document.querySelector("#btn-random").addEventListener("click", () => {
+      let result = [];
+
+      for (let i = 0; i < 10; i++) {
+        result.push(getRandomNumber());
+      }
+
+      alert(result.join(", "));
+    });
+
+    document.querySelector("#btn-color").addEventListener("click", () => {
+      changeBackgroundColor(getColorNumber(), getColorNumber(), getColorNumber());
+    });
+  </script>
+</body>
+
+</html>
