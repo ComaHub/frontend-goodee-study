@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // Arrow Function
+    // 화살표(=>)를 사용해 함수를 선언하는 방법
+    // () => {};
+
+    // ES5의 일반적 방법
+    // 함수 선언문
+    function hello(name) {
+      return "hello " + name;
+    };
+
+    // 함수 표현식
+    const goodbye = function (name) {
+      return "goodbye " + name;
+    };
+
+    // 화살표 함수
+    const goodNight = (name) => {
+      return "good night " + name;
+    };
+
+    // 매개변수가 하나만 있으면 괄호 생략 가능
+    const goodMorning = name => {
+      return "good morning " + name;
+    };
+
+    // 매개변수가 없으면 빈 괄호
+    const goodAfternoon = () => {
+      return "good afternoon";
+    };
+
+    // 암묵적 반환 => return문 한 줄만 있는 경우
+    const goodEvening = (name) => "good evening" + name;
+
+    // (중요) 코드의 간결함보다는 가독성이 우선
+    // 익숙하지 않다면 생략은 자제
+
+    // 객체를 암묵적 반환
+    function getFavoriteMovie() {
+      return {
+        title: "Inception",
+        year: "2010",
+        director: "Nolan",
+        rating: 9.6
+      };
+    }
+
+    console.log(getFavoriteMovie());
+
+    const getFavoriteMovie2 = () => ({ // 객체를 소괄호로 감싸야 생략 가능
+        title: "Inception",
+        year: "2010",
+        director: "Nolan",
+        rating: 9.6
+      });
+
+    console.log(getFavoriteMovie2());
+    
+
+    // Quiz: 화살표 함수로 변경하기
+    // Quiz1
+    // function add(num1, num2) {
+    //   return num1 + num2;
+    // }
+    
+    // 풀이1
+    const newAdd = (num1, num2) => num1 + num2;
+
+    // Quiz2
+    // function ask(question, yes, no) {
+    //   if (confirm(question)) yes();
+    //   else no();
+    // }
+
+    // ask(
+    //   '동의하십니까?',
+    //   () => alert('동의하셨습니다.'),
+    //   () => alert('취소 버튼을 누르셨습니다.')
+    // );
+    
+    // 풀이2
+    const newAsk = (question, yes, no) => {
+      if (confirm(question)) yes();
+      else no();
+    };
+
+    newAsk(
+      '동의하십니까?',
+      () => alert('동의하셨습니다.'),
+      () => alert('취소 버튼을 누르셨습니다.')
+    );
+  </script>
+</body>
+
+</html>

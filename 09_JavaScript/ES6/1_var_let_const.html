@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // var, let, const
+
+    // 1. var
+    // function scope에 종속, 그 외엔 global
+    // block 기준으로 scope가 생기지 않아 block 밖에서도 접근 가능
+    // ex) for문(block scope) 내에서 var 선언 시 밖에서도 접근 가능
+    for (var i = 0; i < 10; i++) {
+      var leak = "나는 밖에서도 사용 가능"; // global variable
+    }
+
+    console.log(leak);
+
+    function myFunc() {
+      var functionScoped = "나는 함수 안에서만 사용 가능"; // function(local) scope
+      console.log(functionScoped);
+    }
+    myFunc();
+    // console.log(functionScoped); ==> Error!
+    
+    
+    // 2. let
+    // block scope에 종속, 그 외엔 global
+    // 변수가 선언된 블록과 그 하위 블록 내에서만 사용 가능
+    // ex)
+    let x = "global"; // global variable
+    if (x === "global") {
+      let x = "block-scoped"; // local variable
+
+      console.log(x);
+    }
+
+    console.log(x);
+
+    // var의 경우
+    var y = "global";
+    if (y === "global") {
+      var y = "block-scoped";
+
+      console.log(y);
+    }
+
+    console.log(y);
+    
+
+    // 3. const
+    // block scope에 정속, 그 외엔 global
+    // 값을 변경할 수 없음
+    const constant = "나는 상수";
+    // constant = "교체"; ==> 불가능!
+
+
+    // 4. 선언하기 전 사용할 수 있는 var
+    console.log(iam);
+    var iam = "나는 변수"
+    // var는 정의하기 전 접근 가능, 값은 비어있음 (undefined)
+
+    // console.log(jam); ==> let, const는 정의되기 전에 접근 불가능!
+    // let jam = "나는 let" 
+    
+
+    // 5. var는 중복 선언 허용
+    var user = "Peter";
+    var user = "Alice";
+    console.log(user);
+
+    // (정리) var와 let, const의 차이점
+    // 1) 스코프가 다르다. var로 선언한 변수는 블록 스코프가 아닌 함수 수준 스코프를 갖는다.
+    // 2) var는 정의되기 전에 접근할 수 있다.(정의되기 전에는 undefined)
+    // 3) var는 중복 선언을 허용한다.(변수명이 동일함으로써 예기치 못한 오류가 발생할 수 있음)
+    
+
+    // Quiz
+    // 1. 다음 코드의 올바른 출력은?
+    var greeting = 'Hello';
+
+    greeting = 'Farewell';
+
+    for (var i = 0; i < 2; i++) {
+      var greeting = 'Good morning';
+    }
+
+    console.log(greeting);
+
+    // 1) Hello
+    // 2) Good morning <<
+    // 3) Farewell
+
+    // 2. 다음 코드의 올바른 출력은?
+    let value = 1;
+
+    if (true) {
+      let value = 2;
+      console.log(value);
+    }
+    
+    value = 3;
+
+    // 1) 1
+    // 2) 2 <<
+    // 3) 3
+
+    // 3. 다음 코드의 올바른 출력은?
+    let a = 100;
+
+    if (a > 50) {
+      let a = 10;
+    }
+
+    console.log(a);
+
+    // 1) 10
+    // 2) 100 <<
+    // 3) 50
+
+    // 4. 다음 코드의 올바른 출력은?
+    console.log(b);
+
+    const b = 1;
+
+    // 1) undefined
+    // 2) ReferenceError <<
+    // 3) 1
+    
+  </script>
+</body>
+
+</html>
