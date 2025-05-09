@@ -99,6 +99,53 @@
       graduationYear = ceo.education?.university?.graduation?.year;
       console.log(graduationYear);
     }
+
+    // Quiz
+    // 1. 다음 코드의 올바른 출력은?
+    const user = {
+      name: 'Goni',
+      age: 27,
+      work: {
+        title: 'software developer'
+      }
+    };
+
+    const res = user?.work?.location ? user?.work?.location : user?.work?.title;
+    console.log(res); // "software developer"
+
+    // 1) location
+    // 2) title
+    // 3) 'software developer'<<
+    // 4) undefined
+
+    // 2. 아래와 같은 객체 구조에서 옵셔널 체이닝을 사용하여 대학 전공에 접근해보세요.
+    // (optional 이라는 주석이 붙은 속성은 있을 수도 있고, 없을 수도 있는 선택적 속성임)
+    const person = {
+      name: 'JH Kim',
+      job: 'teacher',
+      education: { // optional
+        high_school: { // optional 
+          name: 'Songdo'
+        },
+        university: { // optional
+          name: 'Incheon Hawaii',
+          major: 'ICE'
+        }
+      }
+    };
+
+    // 옵셔널 체이닝 미사용시
+    let universityMajor;
+    if (person.education && 
+        person.education.university) {
+      universityMajor = person.education.university.major;
+    }
+    console.log(universityMajor);
+
+    // 사용시
+    universityMajor = person.education?.university?.major;
+    console.log(universityMajor);
+    
   </script>
 </body>
 
