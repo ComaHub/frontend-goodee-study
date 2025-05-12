@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    ul {
+      list-style: none;
+      cursor: pointer;
+      display: flex;
+    }
+    #navigation li {
+      padding: 5px;
+    }
+    #navigation .selected {
+      background-color: red;
+      color: white;
+    }
+  </style>
+  
+  <!-- jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+
+<body>
+  <ul id="navigation">
+    <li>HTML5</li>
+    <li>CSS3</li>
+    <li>JavaScript</li>
+    <li class="selected">jQuery</li>
+    <li>Bootstrap</li>
+  </ul>
+
+  <script>
+    // Vanilla JavaScript vs jQuery
+    // 1) Vanilla
+    // const listEls = document.querySelectorAll("#navigation li");
+
+    // listEls.forEach((listEl) => {
+    //   listEl.addEventListener("click", () => {
+    //     listEls.forEach((listEl) => {
+    //       listEl.classList.remove("selected");
+    //     });
+
+    //     listEl.classList.add("selected");
+    //   });
+    // });
+
+    // 2) jQuery
+    $("#navigation li").click((event) => {
+      $("#navigation li").removeClass("selected");
+      $(event.target).addClass("selected");
+    });
+  </script>
+</body>
+
+</html>
