@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>        
+    #target {
+      width: 80px;
+      height: 80px;
+      margin: 3px;
+      background-color: #f00;
+    }
+
+    #block {
+      width: 100px;
+      border: 1px solid green;
+      background-color: #bca;
+    }
+  </style>
+
+  <!-- jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+  <button type="button" id="fadeout">fade out</button>
+  <button type="button" id="fadein">fade in</button>
+  <button type="button" id="hide">hide</button>
+  <button type="button" id="show">show</button>
+  <button type="button" id="slidedown">slide down</button>
+  <button type="button" id="slideup">slide up</button>
+  <button type="button" id="mix">mix</button>
+  <div id="target">target</div>
+
+  <script>
+    // 제이쿼리 효과 참고: https://api.jquery.com/category/effects/
+
+    $("button").on("click", (event) => {
+      switch ($(event.target).attr("id")) {
+        case "fadeout":
+          $("#target").fadeOut();
+          break;
+
+        case "fadein":
+          $("#target").fadeIn();
+          break;
+
+        case "hide":
+          $("#target").hide();          
+          break;
+
+        case "show":
+          $("#target").show();
+          break;
+
+        case "slidedown":
+          $("#target").slideDown();
+          break;
+
+        case "slideup":
+          $("#target").slideUp();
+          break;
+
+        case "mix":
+          $("#target").fadeOut("slow")
+                      .fadeIn("slow")
+                      .delay(1000)
+                      .slideUp()
+                      .slideDown("slow", () => alert("End!")); // callback => Animation 효과 종료 후 실행
+          break;
+      }
+    });
+  </script>
+
+  <button type="button" id="go">Run</button>
+  <div id="block">Hello!</div>
+
+  <script>
+    // jQuery가 제공하는 효과 외 자유롭게 지정하고 싶을 때
+    $("#go").on("click", (event) => {
+      $("#block").animate({
+        // 최종 상태 입력
+        width: "300px",
+        opacity: 0.4,
+        marginLeft: "50px",
+        fontSize: "30px",
+        borderWidth: "10px"
+      }, 3000);
+    });
+  </script>
+</body>
+</html>

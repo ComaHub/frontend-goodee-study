@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    p {
+      margin:0;
+      color:blue;
+    }
+    div, p {
+      margin-left:10px;
+    }
+    span {
+      color:red;
+    }
+  </style>
+
+  <!-- jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+  <p>
+    <input type="text">
+    <span></span>
+  </p>
+
+  <script>
+    // 제이쿼리 폼 참고: https://api.jquery.com/category/forms/
+
+    $("input").on("focus", (event) => {
+      $(event.target).next().text("Focus");
+    }).on("blur", (event) => {
+      $(event.target).next().text("Blur");
+    }).on("change", (event) => {
+      alert("Changed!" + $(event.target).val());
+    }).on("select", (evnet) => { // 일부 텍스트가 선택됐을 때 발생
+      $(event.target).next().text("Select");
+    });
+  </script>
+
+  <p>Type 'correct' to validate.</p>
+  <form action="javascript:alert('success!');">
+    <div>
+      <input type="text">
+      <button type="submit">제출</button>
+    </div>
+  </form>
+  <span></span>
+
+  <script>
+    $("form").on("submit", (event) => {
+      const inputValue = $("form input:first-child").val();
+      
+      if (inputValue === "correct") {
+        $("form + span").text("Validated...");
+        // return true;
+        return;
+      }
+
+      $("form + span").text("Not Valid!");
+      // return false; // (jQuery에서만 동작) 기본 동작 방지
+      event.preventDefault(); // (표준 JS) 기본 동작 방지
+    });
+  </script>
+</body>
+</html>
