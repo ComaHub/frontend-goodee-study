@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <!-- jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+  <button type="button" id="bind">Add Click</button>
+  <button type="button" id="unbind">Remove Click</button>
+  <button type="button" id="trigger">trigger</button>
+
+  <script>
+    // 제이쿼리 이벤트 참고: https://api.jquery.com/category/events/
+
+    // on()으로 Event Handler 연결, off()로 제거
+    const clickHandler = () => {
+      alert("Thank you!");
+    };
+
+    // 이벤트는 띄어쓰기로 구분해서 여러개 입력 가능
+    $("#bind").on("click", clickHandler);
+
+    $("#unbind").on("click", () => {
+      $("#bind").off("click", clickHandler);
+    });
+
+    // trigger()로 이벤트 강제 발생
+    $("#trigger").on("click", () => {
+      $("#bind").trigger("click");
+    });
+    // 이벤트명을 사용한 메서드는 deprecated됨 => on으로 이벤트 연결 권장
+  </script>
+</body>
+</html>
